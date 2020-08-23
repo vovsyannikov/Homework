@@ -57,10 +57,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WHq-VB-Glj">
-                                <rect key="frame" x="97.5" y="703" width="219" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="219" id="Hpg-ge-evZ"/>
-                                </constraints>
+                                <rect key="frame" x="97.5" y="753" width="219" height="30"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="Посмотреть вертикальные &gt;"/>
                                 <connections>
@@ -75,7 +72,7 @@
                             <constraint firstItem="s5e-eh-LKx" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="E5s-ep-JKe"/>
                             <constraint firstItem="Wok-cq-Iwr" firstAttribute="top" secondItem="VS6-M1-4eE" secondAttribute="bottom" constant="20" id="Gxt-lQ-lG5"/>
                             <constraint firstItem="VS6-M1-4eE" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="NrV-j4-IEF"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="WHq-VB-Glj" secondAttribute="bottom" constant="80" id="OuW-zl-HrK"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="WHq-VB-Glj" secondAttribute="bottom" constant="30" id="OuW-zl-HrK"/>
                             <constraint firstItem="8rZ-GO-a1F" firstAttribute="top" secondItem="s5e-eh-LKx" secondAttribute="top" id="RKg-w1-n4e"/>
                             <constraint firstItem="aMR-oB-0td" firstAttribute="top" secondItem="s5e-eh-LKx" secondAttribute="top" id="Sqy-dr-NU7"/>
                             <constraint firstItem="s5e-eh-LKx" firstAttribute="width" secondItem="aMR-oB-0td" secondAttribute="width" id="T3N-Bk-cZN"/>
@@ -100,7 +97,7 @@
             </objects>
             <point key="canvasLocation" x="1957.9710144927537" y="97.767857142857139"/>
         </scene>
-        <!--Вертикальные-->
+        <!--Вертикальные(без стека)-->
         <scene sceneID="BSg-RU-yHN">
             <objects>
                 <viewController id="Gix-cv-jOP" sceneMemberID="viewController">
@@ -108,66 +105,120 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" distribution="fillEqually" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="GD8-yE-zyH">
-                                <rect key="frame" x="-26" y="406" width="98" height="30"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eZ4-36-7io">
-                                        <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
-                                        <color key="backgroundColor" red="0.1960784314" green="1" blue="0.1960784314" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ikt-Hh-HCO">
-                                        <rect key="frame" x="34" y="0.0" width="30" height="30"/>
-                                        <color key="backgroundColor" red="0.1960784314" green="0.1960784314" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TXZ-As-ppE">
-                                        <rect key="frame" x="68" y="0.0" width="30" height="30"/>
-                                        <color key="backgroundColor" red="1" green="1" blue="0.10000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    </button>
-                                </subviews>
-                            </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Без стека" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a5Q-FH-RBJ">
-                                <rect key="frame" x="168.5" y="208" width="77" height="20.5"/>
+                                <rect key="frame" x="168.5" y="108" width="77" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e7z-AC-KYn">
-                                <rect key="frame" x="142" y="276" width="130" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e7z-AC-KYn">
+                                <rect key="frame" x="8" y="360.5" width="398" height="164"/>
                                 <color key="backgroundColor" red="0.1960784314" green="0.1960784314" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="164" id="rMP-UP-RRp"/>
+                                </constraints>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="maQ-Kn-fR0">
-                                <rect key="frame" x="142" y="236" width="130" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="maQ-Kn-fR0">
+                                <rect key="frame" x="8" y="192.5" width="398" height="164"/>
                                 <color key="backgroundColor" red="0.1960784314" green="1" blue="0.1960784314" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="164" id="ZuG-zw-UCu"/>
+                                </constraints>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A01-5l-DsZ">
-                                <rect key="frame" x="142" y="327" width="130" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A01-5l-DsZ">
+                                <rect key="frame" x="8" y="528.5" width="398" height="164"/>
                                 <color key="backgroundColor" red="1" green="1" blue="0.10000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="164" id="1FL-Zl-bg7"/>
+                                </constraints>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Со стеком" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kPn-55-4v9">
-                                <rect key="frame" x="20" y="307" width="83.5" height="20.5"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z0n-CP-Otc">
+                                <rect key="frame" x="114" y="753" width="186" height="30"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Посмотреть со стеком &gt;"/>
+                                <connections>
+                                    <segue destination="luo-02-tGP" kind="show" id="iqF-fb-SC8"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
+                            <constraint firstItem="z0n-CP-Otc" firstAttribute="centerX" secondItem="tiM-2O-DCS" secondAttribute="centerX" id="2Sd-gL-Re1"/>
+                            <constraint firstItem="A01-5l-DsZ" firstAttribute="leading" secondItem="TiV-NQ-yZ8" secondAttribute="leading" constant="8" id="5Dy-1n-lxk"/>
+                            <constraint firstItem="TiV-NQ-yZ8" firstAttribute="trailing" secondItem="A01-5l-DsZ" secondAttribute="trailing" constant="8" id="5E2-uH-nVi"/>
                             <constraint firstItem="a5Q-FH-RBJ" firstAttribute="centerX" secondItem="tiM-2O-DCS" secondAttribute="centerX" id="GfO-oc-KGb"/>
-                            <constraint firstItem="a5Q-FH-RBJ" firstAttribute="top" secondItem="TiV-NQ-yZ8" secondAttribute="top" constant="120" id="kJV-Bk-mLw"/>
+                            <constraint firstItem="TiV-NQ-yZ8" firstAttribute="bottom" secondItem="z0n-CP-Otc" secondAttribute="bottom" constant="30" id="Peu-eS-oQs"/>
+                            <constraint firstItem="maQ-Kn-fR0" firstAttribute="leading" secondItem="TiV-NQ-yZ8" secondAttribute="leading" constant="8" id="QOx-AK-FKG"/>
+                            <constraint firstItem="e7z-AC-KYn" firstAttribute="top" secondItem="maQ-Kn-fR0" secondAttribute="bottom" constant="4" id="RQe-SR-TYj"/>
+                            <constraint firstItem="A01-5l-DsZ" firstAttribute="top" secondItem="e7z-AC-KYn" secondAttribute="bottom" constant="4" id="W1j-i0-Mgh"/>
+                            <constraint firstItem="e7z-AC-KYn" firstAttribute="leading" secondItem="TiV-NQ-yZ8" secondAttribute="leading" constant="8" id="eeC-Wa-GMC"/>
+                            <constraint firstItem="a5Q-FH-RBJ" firstAttribute="top" secondItem="TiV-NQ-yZ8" secondAttribute="top" constant="20" id="kJV-Bk-mLw"/>
+                            <constraint firstItem="e7z-AC-KYn" firstAttribute="centerY" secondItem="tiM-2O-DCS" secondAttribute="centerY" constant="-5.5" id="lLT-Wy-wZX"/>
+                            <constraint firstItem="TiV-NQ-yZ8" firstAttribute="trailing" secondItem="maQ-Kn-fR0" secondAttribute="trailing" constant="8" id="oZk-1q-FOK"/>
+                            <constraint firstItem="e7z-AC-KYn" firstAttribute="centerX" secondItem="tiM-2O-DCS" secondAttribute="centerX" id="ry0-7r-ePn"/>
+                            <constraint firstItem="TiV-NQ-yZ8" firstAttribute="trailing" secondItem="e7z-AC-KYn" secondAttribute="trailing" constant="8" id="zbE-Z2-YSN"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="TiV-NQ-yZ8"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Вертикальные" id="9i1-6B-m7c">
-                        <barButtonItem key="backBarButtonItem" title="Назад" id="chp-1e-yIh"/>
+                    <navigationItem key="navigationItem" title="Вертикальные(без стека)" id="9i1-6B-m7c">
+                        <barButtonItem key="backBarButtonItem" title="Без стека" id="chp-1e-yIh"/>
                     </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mZp-QD-FzK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2816" y="98"/>
+            <point key="canvasLocation" x="2815.9420289855075" y="97.767857142857139"/>
+        </scene>
+        <!--Вертикальные(стек)-->
+        <scene sceneID="lFD-Dr-zHA">
+            <objects>
+                <viewController id="luo-02-tGP" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="bWI-cy-yvt">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Со стеком" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eU4-g1-3zI">
+                                <rect key="frame" x="165.5" y="108" width="83.5" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="0AE-gb-nhD">
+                                <rect key="frame" x="8" y="198" width="398" height="500"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sGR-CZ-MAe">
+                                        <rect key="frame" x="0.0" y="0.0" width="398" height="164"/>
+                                        <color key="backgroundColor" red="0.1960784314" green="1" blue="0.1960784314" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dZ7-w4-QFj">
+                                        <rect key="frame" x="0.0" y="168" width="398" height="164"/>
+                                        <color key="backgroundColor" red="0.1960784314" green="0.1960784314" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ElK-Wn-phy">
+                                        <rect key="frame" x="0.0" y="336" width="398" height="164"/>
+                                        <color key="backgroundColor" red="1" green="1" blue="0.10000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="500" id="m9N-EI-Zld"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="o0D-Uq-U8w" firstAttribute="trailing" secondItem="0AE-gb-nhD" secondAttribute="trailing" constant="8" id="5eh-Wp-qlM"/>
+                            <constraint firstItem="eU4-g1-3zI" firstAttribute="centerX" secondItem="bWI-cy-yvt" secondAttribute="centerX" id="Nf6-JB-C8X"/>
+                            <constraint firstItem="0AE-gb-nhD" firstAttribute="centerX" secondItem="bWI-cy-yvt" secondAttribute="centerX" id="OkO-tD-WcU"/>
+                            <constraint firstItem="0AE-gb-nhD" firstAttribute="leading" secondItem="o0D-Uq-U8w" secondAttribute="leading" constant="8" id="hk8-8E-8oj"/>
+                            <constraint firstItem="eU4-g1-3zI" firstAttribute="top" secondItem="o0D-Uq-U8w" secondAttribute="top" constant="20" id="jkf-16-SMY"/>
+                            <constraint firstItem="0AE-gb-nhD" firstAttribute="centerY" secondItem="bWI-cy-yvt" secondAttribute="centerY" id="oHp-d6-bpc"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="o0D-Uq-U8w"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Вертикальные(стек)" id="cqT-eL-5Rp"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1vS-rZ-yh5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3600.0000000000005" y="97.767857142857139"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="eON-hN-dUU">

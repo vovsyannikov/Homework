@@ -226,12 +226,14 @@
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="Juq-UI-nN8" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="04i-Ys-aNx">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
                         <segue destination="s2G-59-oTm" kind="relationship" relationship="viewControllers" id="SM9-Ch-ak5"/>
                         <segue destination="eOa-pz-o6l" kind="relationship" relationship="viewControllers" id="ceL-Ub-ER7"/>
+                        <segue destination="I6Z-5W-bms" kind="relationship" relationship="viewControllers" id="S3O-uz-8mk"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mAq-Ff-JYC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -301,6 +303,50 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Wyw-HX-mEc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1047.8260869565217" y="97.767857142857139"/>
+        </scene>
+        <!--Item-->
+        <scene sceneID="B1n-nc-clt">
+            <objects>
+                <viewController id="I6Z-5W-bms" customClass="ViewController" customModule="Homework" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="iQh-pH-Irr">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iAV-K7-0Rl">
+                                <rect key="frame" x="-74" y="437.5" width="562" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="Jx0-wD-Mcn"/>
+                                </constraints>
+                                <string key="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.  Pellentesque aliquam mi fermentum, tincidunt ipsum ut, vulputate metus.  Donec placerat at est eu consequat.  Praesent nec metus quis arcu aliquet blandit.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rrF-bW-s5k">
+                                <rect key="frame" x="144" y="753" width="126" height="30"/>
+                                <state key="normal" title="Изменить высоту"/>
+                                <connections>
+                                    <action selector="changeLabelHeight:" destination="I6Z-5W-bms" eventType="touchUpInside" id="H9P-i2-JiZ"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="dhD-Bl-TBA" firstAttribute="bottom" secondItem="rrF-bW-s5k" secondAttribute="bottom" constant="30" id="APb-Sg-gHw"/>
+                            <constraint firstItem="iAV-K7-0Rl" firstAttribute="centerX" secondItem="iQh-pH-Irr" secondAttribute="centerX" id="XuF-RX-3Xe"/>
+                            <constraint firstItem="rrF-bW-s5k" firstAttribute="centerX" secondItem="iQh-pH-Irr" secondAttribute="centerX" id="dDG-az-J6q"/>
+                            <constraint firstItem="iAV-K7-0Rl" firstAttribute="centerY" secondItem="iQh-pH-Irr" secondAttribute="centerY" id="kpi-Ve-2QN"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="dhD-Bl-TBA"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Item" id="P10-5e-9pd"/>
+                    <connections>
+                        <outlet property="labelHeightConstraint" destination="Jx0-wD-Mcn" id="q7e-dz-bcw"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ntR-cz-p4E" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1043" y="784"/>
         </scene>
     </scenes>
     <resources>

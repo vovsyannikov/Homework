@@ -10,11 +10,15 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var labelHeightConstraint: NSLayoutConstraint!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
     }
 
-
+    @IBAction func changeLabelHeight(_ sender: Any) {
+        labelHeightConstraint.constant += labelHeightConstraint.constant * 5
+    }
+    
 }
 

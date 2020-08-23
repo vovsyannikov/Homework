@@ -231,11 +231,57 @@
                     </tabBar>
                     <connections>
                         <segue destination="s2G-59-oTm" kind="relationship" relationship="viewControllers" id="SM9-Ch-ak5"/>
+                        <segue destination="eOa-pz-o6l" kind="relationship" relationship="viewControllers" id="ceL-Ub-ER7"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mAq-Ff-JYC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="137.68115942028987" y="97.767857142857139"/>
+        </scene>
+        <!--Лейблы-->
+        <scene sceneID="qJD-2L-TGH">
+            <objects>
+                <viewController id="eOa-pz-o6l" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="aXl-EL-msv">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1. Label Label Label " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fsI-ve-7Oa">
+                                <rect key="frame" x="8" y="437.5" width="154" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" misplaced="YES" text="2. Label Label Label Label Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V8W-F4-PHL">
+                                <rect key="frame" x="218" y="438" width="188" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="lessThanOrEqual" constant="40" id="pNK-Lo-PQd"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="pNK-Lo-PQd"/>
+                                    </mask>
+                                </variation>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="SEu-iY-eEQ" firstAttribute="trailing" secondItem="V8W-F4-PHL" secondAttribute="trailing" constant="8" id="Buj-Xr-9uK"/>
+                            <constraint firstItem="fsI-ve-7Oa" firstAttribute="centerY" secondItem="aXl-EL-msv" secondAttribute="centerY" id="CRg-vn-Yg5"/>
+                            <constraint firstItem="V8W-F4-PHL" firstAttribute="leading" secondItem="fsI-ve-7Oa" secondAttribute="trailing" constant="4" id="Cfh-uZ-xFH"/>
+                            <constraint firstItem="V8W-F4-PHL" firstAttribute="centerY" secondItem="aXl-EL-msv" secondAttribute="centerY" id="gOr-wP-Nvx"/>
+                            <constraint firstItem="fsI-ve-7Oa" firstAttribute="leading" secondItem="SEu-iY-eEQ" secondAttribute="leading" constant="8" id="ry8-Q4-KLz"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="SEu-iY-eEQ"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Лейблы" image="2.square.fill" catalog="system" id="KeH-0j-uYo"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iiz-gO-W2d" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1047.8260869565217" y="-583.25892857142856"/>
         </scene>
         <!--Кнопки-->
         <scene sceneID="p3U-fl-6q2">
@@ -259,5 +305,6 @@
     </scenes>
     <resources>
         <image name="1.square.fill" catalog="system" width="128" height="114"/>
+        <image name="2.square.fill" catalog="system" width="128" height="114"/>
     </resources>
 </document>

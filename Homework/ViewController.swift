@@ -12,12 +12,23 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var labelHeightConstraint: NSLayoutConstraint!
     
+    @IBOutlet weak var heightButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
 
     @IBAction func changeLabelHeight(_ sender: Any) {
-        labelHeightConstraint.constant += labelHeightConstraint.constant * 5
+        
+        if labelHeightConstraint.constant == 21 {
+            labelHeightConstraint.constant = 21 * 5
+            
+            heightButton.setImage(UIImage.init(systemName: "chevron.up.square"), for: UIControl.State.normal)
+        } else {
+            labelHeightConstraint.constant = 21
+            
+            heightButton.setImage(UIImage.init(systemName: "chevron.down.square"), for: UIControl.State.normal)
+        }
     }
     
 }

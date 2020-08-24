@@ -304,7 +304,7 @@
             </objects>
             <point key="canvasLocation" x="1047.8260869565217" y="97.767857142857139"/>
         </scene>
-        <!--Item-->
+        <!--Текст-->
         <scene sceneID="B1n-nc-clt">
             <objects>
                 <viewController id="I6Z-5W-bms" customClass="ViewController" customModule="Homework" customModuleProvider="target" sceneMemberID="viewController">
@@ -312,8 +312,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iAV-K7-0Rl">
-                                <rect key="frame" x="-74" y="437.5" width="562" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iAV-K7-0Rl">
+                                <rect key="frame" x="8" y="437.5" width="398" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="Jx0-wD-Mcn"/>
                                 </constraints>
@@ -322,9 +322,12 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rrF-bW-s5k">
-                                <rect key="frame" x="144" y="753" width="126" height="30"/>
-                                <state key="normal" title="Изменить высоту"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" pointerInteraction="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rrF-bW-s5k">
+                                <rect key="frame" x="192" y="478.5" width="30" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="CKc-0n-3yB"/>
+                                    <constraint firstAttribute="width" constant="30" id="heW-cX-be3"/>
+                                </constraints>
                                 <connections>
                                     <action selector="changeLabelHeight:" destination="I6Z-5W-bms" eventType="touchUpInside" id="H9P-i2-JiZ"/>
                                 </connections>
@@ -332,25 +335,28 @@
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="dhD-Bl-TBA" firstAttribute="bottom" secondItem="rrF-bW-s5k" secondAttribute="bottom" constant="30" id="APb-Sg-gHw"/>
-                            <constraint firstItem="iAV-K7-0Rl" firstAttribute="centerX" secondItem="iQh-pH-Irr" secondAttribute="centerX" id="XuF-RX-3Xe"/>
+                            <constraint firstItem="iAV-K7-0Rl" firstAttribute="centerY" secondItem="iQh-pH-Irr" secondAttribute="centerY" id="8TV-vv-3AW"/>
+                            <constraint firstItem="rrF-bW-s5k" firstAttribute="top" secondItem="iAV-K7-0Rl" secondAttribute="bottom" constant="20" id="9nv-Dn-KJY"/>
                             <constraint firstItem="rrF-bW-s5k" firstAttribute="centerX" secondItem="iQh-pH-Irr" secondAttribute="centerX" id="dDG-az-J6q"/>
-                            <constraint firstItem="iAV-K7-0Rl" firstAttribute="centerY" secondItem="iQh-pH-Irr" secondAttribute="centerY" id="kpi-Ve-2QN"/>
+                            <constraint firstItem="iAV-K7-0Rl" firstAttribute="leading" secondItem="iQh-pH-Irr" secondAttribute="leading" constant="8" id="ni4-Vm-spw"/>
+                            <constraint firstAttribute="trailing" secondItem="iAV-K7-0Rl" secondAttribute="trailing" constant="8" id="vt0-tZ-7Pr"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="dhD-Bl-TBA"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="P10-5e-9pd"/>
+                    <tabBarItem key="tabBarItem" title="Текст" image="3.square.fill" catalog="system" id="P10-5e-9pd"/>
                     <connections>
+                        <outlet property="heightButton" destination="rrF-bW-s5k" id="fEF-f1-c3c"/>
                         <outlet property="labelHeightConstraint" destination="Jx0-wD-Mcn" id="q7e-dz-bcw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ntR-cz-p4E" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1043" y="784"/>
+            <point key="canvasLocation" x="1042.0289855072465" y="783.48214285714278"/>
         </scene>
     </scenes>
     <resources>
         <image name="1.square.fill" catalog="system" width="128" height="114"/>
         <image name="2.square.fill" catalog="system" width="128" height="114"/>
+        <image name="3.square.fill" catalog="system" width="128" height="114"/>
     </resources>
 </document>

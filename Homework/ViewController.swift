@@ -9,6 +9,7 @@
 import UIKit
 
 class ViewController: UIViewController {
+    @IBOutlet weak var StoreCollectionView: UICollectionView!
     
     var products: [(name: String, currentPrice: String, prevPrice: String, image: UIImage)] = []
     let productImageNames: [(name: String, price: Int)] = [
@@ -101,12 +102,33 @@ class ViewController: UIViewController {
 
 extension ViewController: UICollectionViewDelegateFlowLayout, UICollectionViewDataSource{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return products.count
+        return productImageNames.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ProductCell", for: indexPath) as! ProductCollectionViewCell
         
+        cell.productImageView.image = products[indexPath.row].image
+        cell.prevPriceLabel.text = products[indexPath.row].prevPrice.strikeThrough()
+        cell.currPriceLabel.text = products[indexPath.row].currentPrice
+        cell.productNameLabel.text = products[indexPath.row].name
+        
+        
+        
         return cell
+    }
+}
+
+
+extension String {
+    func strikeThrough() -> String {
+        var struck = ""
+        let strikeChar: Character = "\u{0336}"
+        self.forEach { (char) in
+            var xchar = UnicodeScalarView(char.unicodeScalars)
+            xchar.append(strikeChar.unicodeScalars.first!)
+            struck.append(String(xchar))
+        }
+        return struck
     }
 }

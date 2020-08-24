@@ -92,6 +92,7 @@ extension OptionsViewController: UITableViewDataSource, UITableViewDelegate{
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
         func offset() -> Int{
             var count = 0
             for i in 0..<indexPath.section{
@@ -100,14 +101,17 @@ extension OptionsViewController: UITableViewDataSource, UITableViewDelegate{
             
             return count + indexPath.row
         }
-        let ID = options[indexPath.row].type
+        
+        let ID = options[offset()].type
         
         let cell = tableView.dequeueReusableCell(withIdentifier: ID.rawValue, for: indexPath) as! OptionTableViewCell
+        
         cell.iconImageView.image = options[offset()].icon
         cell.nameLabel.text = options[offset()].name
             
         if ID == .standart{
             cell.descriptionLabel.text = options[offset()].desc
+            
         }
         
         return cell

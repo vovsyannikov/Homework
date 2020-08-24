@@ -254,8 +254,8 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" misplaced="YES" text="2. Label Label Label Label Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V8W-F4-PHL">
-                                <rect key="frame" x="218" y="438" width="188" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" text="2. Label Label Label Label Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V8W-F4-PHL">
+                                <rect key="frame" x="166" y="437.5" width="240" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="lessThanOrEqual" constant="40" id="pNK-Lo-PQd"/>
                                 </constraints>
@@ -328,6 +328,7 @@
                                     <constraint firstAttribute="height" constant="30" id="CKc-0n-3yB"/>
                                     <constraint firstAttribute="width" constant="30" id="heW-cX-be3"/>
                                 </constraints>
+                                <state key="normal" image="chevron.down.square" catalog="system"/>
                                 <connections>
                                     <action selector="changeLabelHeight:" destination="I6Z-5W-bms" eventType="touchUpInside" id="H9P-i2-JiZ"/>
                                 </connections>
@@ -358,5 +359,6 @@
         <image name="1.square.fill" catalog="system" width="128" height="114"/>
         <image name="2.square.fill" catalog="system" width="128" height="114"/>
         <image name="3.square.fill" catalog="system" width="128" height="114"/>
+        <image name="chevron.down.square" catalog="system" width="128" height="114"/>
     </resources>
 </document>

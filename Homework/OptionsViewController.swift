@@ -58,7 +58,7 @@ class OptionsViewController: UIViewController {
         Option(icon: UIImage(systemName: "wifi")!, name: "Wi-Fi", type: .standart, desc: "PublicNet", segment: .comms),
         Option(icon: UIImage(named: "bluetooth")!.withTintColor(UIColor.systemBlue), name: "Bluetooth", type: .standart, desc: "AirpodsPro", segment: .comms),
         Option(icon: UIImage(systemName: "antenna.radiowaves.left.and.right")!, name: "Сотовая связь", type: .standart, segment: .comms),
-        Option(icon: UIImage(systemName: "link")!, name: "Режим можема", type: .standart, segment: .comms),
+        Option(icon: UIImage(systemName: "link")!, name: "Режим модема", type: .standart, segment: .comms),
         Option(icon: UIImage(systemName: "app.badge.fill")!, name: "Уведомления", type: .standart, segment: .notifications),
         Option(icon: UIImage(systemName: "speaker.3.fill")!, name: "Звук, такитльные сигналы", type: .standart, segment: .notifications),
         Option(icon: UIImage(systemName: "moon.fill")!, name: "Не беспокоить", type: .standart, segment: .notifications),
@@ -104,7 +104,7 @@ extension OptionsViewController: UITableViewDataSource, UITableViewDelegate{
         
         let ID = options[offset()].type
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: ID.rawValue, for: indexPath) as! OptionTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: ID.rawValue) as! OptionTableViewCell
         
         cell.iconImageView.image = options[offset()].icon
         cell.nameLabel.text = options[offset()].name
@@ -117,5 +117,8 @@ extension OptionsViewController: UITableViewDataSource, UITableViewDelegate{
         return cell
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
     
 }

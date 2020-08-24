@@ -11,7 +11,7 @@
         <!--Таблицы-->
         <scene sceneID="Y3h-3c-fjv">
             <objects>
-                <viewController id="zBU-bn-mq0" sceneMemberID="viewController">
+                <viewController id="zBU-bn-mq0" customClass="OptionsViewController" customModule="Homework" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="yBP-gZ-ash">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -64,11 +64,11 @@
                                             <outlet property="nameLabel" destination="4pb-Jq-xV4" id="RPA-BK-oRf"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Button" rowHeight="70" id="3dc-Yu-WBF" customClass="OptionTableViewCell" customModule="Homework" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Button" rowHeight="70" id="3dc-Yu-WBF" customClass="OptionTableViewCell" customModule="Homework" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="98" width="414" height="70"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="3dc-Yu-WBF" id="7ew-16-L7d">
-                                            <rect key="frame" x="0.0" y="0.0" width="383" height="70"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="70"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9QJ-Nh-9WA">
@@ -85,7 +85,7 @@
                                                     </constraints>
                                                 </imageView>
                                                 <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PJt-v9-qNB">
-                                                    <rect key="frame" x="311" y="19.5" width="51" height="31"/>
+                                                    <rect key="frame" x="340" y="19.5" width="51" height="31"/>
                                                 </switch>
                                             </subviews>
                                             <constraints>
@@ -93,7 +93,7 @@
                                                 <constraint firstItem="EFQ-4s-ktE" firstAttribute="leading" secondItem="7ew-16-L7d" secondAttribute="leading" constant="15" id="6EN-qD-OLl"/>
                                                 <constraint firstItem="PJt-v9-qNB" firstAttribute="centerY" secondItem="7ew-16-L7d" secondAttribute="centerY" id="WEA-lU-kah"/>
                                                 <constraint firstItem="EFQ-4s-ktE" firstAttribute="centerY" secondItem="7ew-16-L7d" secondAttribute="centerY" id="Xcl-ls-NXN"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="PJt-v9-qNB" secondAttribute="trailing" constant="15" id="hR7-SP-39E"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="PJt-v9-qNB" secondAttribute="trailing" constant="5" id="hR7-SP-39E"/>
                                                 <constraint firstItem="9QJ-Nh-9WA" firstAttribute="leading" secondItem="EFQ-4s-ktE" secondAttribute="trailing" constant="15" id="k4b-VG-DxD"/>
                                                 <constraint firstItem="9QJ-Nh-9WA" firstAttribute="top" secondItem="7ew-16-L7d" secondAttribute="topMargin" constant="5" id="kHC-Hg-QQW"/>
                                                 <constraint firstItem="9QJ-Nh-9WA" firstAttribute="centerY" secondItem="7ew-16-L7d" secondAttribute="centerY" id="lFk-fj-ao7"/>
@@ -106,6 +106,10 @@
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="zBU-bn-mq0" id="OLj-mU-5YC"/>
+                                    <outlet property="delegate" destination="zBU-bn-mq0" id="l3p-eF-VMt"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>

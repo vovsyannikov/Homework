@@ -23,10 +23,10 @@ struct Option{
 
 class OptionsViewController: UIViewController {
     
-    let option = [
+    let options = [
         Option(icon: UIImage(systemName: "airplane")!, name: "Авиарежим", type: .button),
         Option(icon: UIImage(systemName: "wifi")!, name: "Wi-Fi", type: .standart, desc: "PublicNet"),
-        Option(icon: UIImage(systemName: "bluetooth")!, name: "Bluetooth", type: .standart, desc: "AirpodsPro"),
+        Option(icon: UIImage(named: "bluetooth")!, name: "Bluetooth", type: .standart, desc: "AirpodsPro"),
         Option(icon: UIImage(systemName: "antenna.radiowaves.left.and.right")!, name: "Сотовая связь", type: .standart),
         Option(icon: UIImage(systemName: "link")!, name: "Режим можема", type: .standart),
         Option(icon: UIImage(systemName: "app.badge.fill")!, name: "Уведомления", type: .standart),
@@ -44,4 +44,18 @@ class OptionsViewController: UIViewController {
         
     }
 
+}
+
+extension OptionsViewController: UITableViewDataSource, UITableViewDelegate{
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return options.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Standart", for: indexPath)
+        
+        return cell
+    }
+    
+    
 }

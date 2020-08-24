@@ -15,6 +15,7 @@
 		3C8D74BE24F2E87F00819F8B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3C8D74BC24F2E87F00819F8B /* LaunchScreen.storyboard */; };
 		3C8D74C924F2E87F00819F8B /* HomeworkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C8D74C824F2E87F00819F8B /* HomeworkTests.swift */; };
 		3C8D74D424F2E87F00819F8B /* HomeworkUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C8D74D324F2E87F00819F8B /* HomeworkUITests.swift */; };
+		3C8D751824F3EB1700819F8B /* ProductCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C8D751724F3EB1700819F8B /* ProductCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		3C8D74CF24F2E87F00819F8B /* HomeworkUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HomeworkUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3C8D74D324F2E87F00819F8B /* HomeworkUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeworkUITests.swift; sourceTree = "<group>"; };
 		3C8D74D524F2E87F00819F8B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3C8D751724F3EB1700819F8B /* ProductCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +105,7 @@
 				3C8D74B324F2E87C00819F8B /* SceneDelegate.swift */,
 				3C8D74B524F2E87C00819F8B /* ViewController.swift */,
 				3C8D74B724F2E87C00819F8B /* Main.storyboard */,
+				3C8D751724F3EB1700819F8B /* ProductCollectionViewCell.swift */,
 				3C8D74BA24F2E87F00819F8B /* Assets.xcassets */,
 				3C8D74BC24F2E87F00819F8B /* LaunchScreen.storyboard */,
 				3C8D74BF24F2E87F00819F8B /* Info.plist */,
@@ -261,6 +264,7 @@
 			files = (
 				3C8D74B624F2E87C00819F8B /* ViewController.swift in Sources */,
 				3C8D74B224F2E87C00819F8B /* AppDelegate.swift in Sources */,
+				3C8D751824F3EB1700819F8B /* ProductCollectionViewCell.swift in Sources */,
 				3C8D74B424F2E87C00819F8B /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

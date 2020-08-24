@@ -27,34 +27,36 @@ struct Option{
     var desc = ""
     
     let segment: Segments
+}
+
+class OptionsViewController: UIViewController {
     
-    func countElementsInSegment(opt: [Option]) -> Dictionary<Segments, Int> {
-        var count: Dictionary<Segments, Int> = Dictionary()
-        count[.comms] = 0
-        count[.notifications] = 0
-        count[.general] = 0
+    func countElementsInSection(opt: [Option], in section: Int) -> Int{
+        var count = 0
         
         for el in opt{
-            switch el.segment {
-            case .comms:
-                count[.comms]! += 1
-            case .notifications:
-                count[.notifications]! += 1
-            case .general:
-                count[.general]! += 1
+            if section == 0{
+                if el.segment == .comms {
+                    count += 1
+                }
+            } else if section == 1{
+                if el.segment == .notifications {
+                    count += 1
+                }
+            } else if section == 2 {
+                if el.segment == .general {
+                    count += 1
+                }
             }
         }
         
         return count
     }
-}
-
-class OptionsViewController: UIViewController {
     
-    let options = [
+    var options = [
         Option(icon: UIImage(systemName: "airplane")!, name: "Авиарежим", type: .button, segment: .comms),
         Option(icon: UIImage(systemName: "wifi")!, name: "Wi-Fi", type: .standart, desc: "PublicNet", segment: .comms),
-        Option(icon: UIImage(named: "bluetooth")!, name: "Bluetooth", type: .standart, desc: "AirpodsPro", segment: .comms),
+        Option(icon: UIImage(named: "bluetooth")!.withTintColor(UIColor.systemBlue), name: "Bluetooth", type: .standart, desc: "AirpodsPro", segment: .comms),
         Option(icon: UIImage(systemName: "antenna.radiowaves.left.and.right")!, name: "Сотовая связь", type: .standart, segment: .comms),
         Option(icon: UIImage(systemName: "link")!, name: "Режим можема", type: .standart, segment: .comms),
         Option(icon: UIImage(systemName: "app.badge.fill")!, name: "Уведомления", type: .standart, segment: .notifications),
@@ -68,7 +70,7 @@ class OptionsViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        print()
     }
 
 }
@@ -80,25 +82,32 @@ extension OptionsViewController: UITableViewDataSource, UITableViewDelegate{
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        let sections = options[section].countElementsInSegment(opt: options)
+        return countElementsInSection(opt: options, in: section)
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Spacer") as! OptionTableViewCell
         
-        switch section {
-        case 0: return sections[.comms]!
-        case 1: return sections[.notifications]!
-        case 2: return sections[.general]!
-        default: return 0
-        }
+        return cell
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        func offset() -> Int{
+            var count = 0
+            for i in 0..<indexPath.section{
+                count += countElementsInSection(opt: options, in: i)
+            }
+            
+            return count + indexPath.row
+        }
         let ID = options[indexPath.row].type
         
         let cell = tableView.dequeueReusableCell(withIdentifier: ID.rawValue, for: indexPath) as! OptionTableViewCell
-        cell.iconImageView.image = options[indexPath.row].icon
-        cell.nameLabel.text = options[indexPath.row].name
-        
+        cell.iconImageView.image = options[offset()].icon
+        cell.nameLabel.text = options[offset()].name
+            
         if ID == .standart{
-            cell.descriptionLabel.text = options[indexPath.row].desc
+            cell.descriptionLabel.text = options[offset()].desc
         }
         
         return cell

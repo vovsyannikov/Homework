@@ -101,6 +101,14 @@ class ViewController: UIViewController {
 }
 
 extension ViewController: UICollectionViewDelegateFlowLayout, UICollectionViewDataSource{
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize{
+        let h = UIScreen.main.bounds.size.height / 3
+        let w = UIScreen.main.bounds.size.width / 2
+        
+        return CGSize(width: w, height: h)
+    }
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return productImageNames.count
     }

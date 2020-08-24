@@ -121,13 +121,11 @@ extension ViewController: UICollectionViewDelegateFlowLayout, UICollectionViewDa
         cell.currPriceLabel.text = products[indexPath.row].currentPrice
         cell.productNameLabel.text = products[indexPath.row].name
         
-        
-        
         return cell
     }
 }
 
-
+// Расширение для перечеркнутого текста
 extension String {
     func strikeThrough() -> String {
         var struck = ""

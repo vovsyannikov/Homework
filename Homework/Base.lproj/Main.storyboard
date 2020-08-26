@@ -242,6 +242,38 @@
             </objects>
             <point key="canvasLocation" x="1047.8260869565217" y="92.410714285714278"/>
         </scene>
+        <!--Прокрутка-->
+        <scene sceneID="NsU-dY-m2c">
+            <objects>
+                <viewController id="lxZ-D0-lcm" customClass="FoodDeliveryViewController" customModule="Homework" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="0sY-Tn-ozC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" pagingEnabled="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mGf-sl-3ol">
+                                <rect key="frame" x="0.0" y="44" width="414" height="769"/>
+                                <viewLayoutGuide key="contentLayoutGuide" id="Zp2-tm-mro"/>
+                                <viewLayoutGuide key="frameLayoutGuide" id="ZLa-Um-oV7"/>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="mGf-sl-3ol" firstAttribute="top" secondItem="BwK-aN-T8V" secondAttribute="top" id="4rG-U7-IoP"/>
+                            <constraint firstItem="mGf-sl-3ol" firstAttribute="trailing" secondItem="BwK-aN-T8V" secondAttribute="trailing" id="8wz-8P-0LJ"/>
+                            <constraint firstItem="mGf-sl-3ol" firstAttribute="leading" secondItem="BwK-aN-T8V" secondAttribute="leading" id="bEs-Ug-V5S"/>
+                            <constraint firstItem="mGf-sl-3ol" firstAttribute="bottom" secondItem="BwK-aN-T8V" secondAttribute="bottom" id="xEs-Qd-XaU"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="BwK-aN-T8V"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Прокрутка" image="arrow.up.square.fill" catalog="system" id="7LS-Cx-HLg"/>
+                    <connections>
+                        <outlet property="foodScrollView" destination="mGf-sl-3ol" id="Q8y-ab-AcF"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uDt-mz-W0n" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1047.8260869565217" y="819.64285714285711"/>
+        </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="wTu-Gf-Fg7">
             <objects>
@@ -255,6 +287,7 @@
                     <connections>
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="TWQ-WP-GDx"/>
                         <segue destination="zBU-bn-mq0" kind="relationship" relationship="viewControllers" id="j4E-ej-MCX"/>
+                        <segue destination="lxZ-D0-lcm" kind="relationship" relationship="viewControllers" id="vvL-O1-VaJ"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jXo-S6-pEA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -263,6 +296,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="arrow.up.square.fill" catalog="system" width="128" height="114"/>
         <image name="cart.badge.plus" catalog="system" width="128" height="98"/>
         <image name="rectangle.grid.1x2.fill" catalog="system" width="128" height="101"/>
         <image name="square.grid.2x2.fill" catalog="system" width="128" height="114"/>

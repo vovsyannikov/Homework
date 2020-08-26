@@ -8,10 +8,10 @@
 
 import UIKit
 
-enum FoodType{
-    case Burger
-    case Pizza
-    case Sushi
+enum FoodType: String{
+    case Burger = "Бургер"
+    case Pizza = "Пицца"
+    case Sushi = "Суши"
 }
 
 enum Star: String {
@@ -23,27 +23,61 @@ enum Star: String {
 class Restaraunt{
     var restName = ""
     var rating = 0.0
-    let stars: Dictionary<Star, UIImage> = [
+    
+    var stars: Dictionary<Star, UIImage> = [
         .empty   :UIImage(systemName: Star.empty.rawValue)!,
         .halfFull:UIImage(systemName: Star.halfFull.rawValue)!,
         .full:UIImage(systemName: Star.full.rawValue)!
     ]
     
-//    func getVisualRating() -> UIView{
-//        var ratingVisual = UIView(frame: CGRect(x: 0, y: 0, width: 120, height: 80))
-//        var tempRating = rating
-//
-//        for _ in 1...5{
-//            if tempRating.rounded() > 0{
-//                tempRating -= 1
-//                ratingVisual.addSubview(UIImageView(image: stars[.full]))
-//            } else if tempRating > 0{
-//
-//            }
-//        }
-//
-//        return ratingVisual
-//    }
+    func getVisualRating() -> UIView{
+        let ratingVisual = UIView.init()
+        var starImageView: [UIImageView] = []
+        let roundedRating = rating.rounded(FloatingPointRoundingRule.down)
+        var remainderRating = rating - roundedRating
+        var tempRating = rating
+        
+        for _ in 1...5{
+            starImageView.append(UIImageView.init())
+        }
+
+        var index = 0
+        while index < 5 {
+            if tempRating - 1 > 0{
+                starImageView[index].image = stars[.full]
+                index += 1
+                tempRating -= 1
+            } else if tempRating - 1 == 0{
+                starImageView[index].image = stars[.full]
+                index += 1
+                tempRating -= 1
+            } else {
+                if remainderRating >= 0.5 {
+                    starImageView[index].image = stars[.halfFull]
+                    index += 1
+                    remainderRating = 0
+                } else {
+                    starImageView[index].image = stars[.empty]
+                    index += 1
+                    remainderRating = 0
+                }
+            }
+        }
+        
+        var offset: CGFloat = 0
+        let square: CGFloat = 15
+        for star in starImageView{
+            star.frame = CGRect(x: ratingVisual.bounds.minX + offset, y: ratingVisual.bounds.minY, width: square, height: square)
+            offset += star.frame.size.width
+            
+            star.tintColor = UIColor(red: 0.9, green: 0.55, blue: 0, alpha: 1)
+            ratingVisual.addSubview(star)
+        }
+        
+        ratingVisual.frame = CGRect(x: 0, y: 0, width: square * CGFloat(starImageView.count), height: square)
+        
+        return ratingVisual
+    }
 }
 class FoodItem: Restaraunt{
     var image = UIImage.init()
@@ -51,6 +85,43 @@ class FoodItem: Restaraunt{
     var description = ""
     var components: [String] = []
     var type = FoodType.Burger
+    
+    func getComponents() -> UIView {
+        let resultView = UIView.init()
+        var boxesImageViews: [UIImageView] = []
+        var componentsLabels: [UILabel] = []
+        
+        let nameLabel = UILabel.init()
+        nameLabel.frame = CGRect(x: 0, y: 0, width: 300, height: 20)
+        nameLabel.text = "Список ингредиентов: "
+        nameLabel.font = UIFont.italicSystemFont(ofSize: 18)
+        nameLabel.layer.borderWidth = 1
+        
+        resultView.addSubview(nameLabel)
+        
+        var offset: CGFloat = 0
+        let boxSize: CGFloat = 20
+        
+        for (index, ingredient) in components.enumerated(){
+            boxesImageViews.append(UIImageView.init())
+            componentsLabels.append(UILabel.init())
+            
+            boxesImageViews[index].frame = CGRect(x: 0, y: nameLabel.frame.maxY + 10 + offset, width: boxSize, height: boxSize)
+            componentsLabels[index].frame = CGRect(x: 5 + boxSize, y: nameLabel.frame.maxY + 10 + offset, width: 300, height: 20)
+            
+            offset += componentsLabels[index].frame.size.height
+            
+            boxesImageViews[index].image = UIImage(systemName: "square")?.withTintColor(UIColor.black)
+            componentsLabels[index].text = ingredient
+            
+            resultView.addSubview(boxesImageViews[index])
+            resultView.addSubview(componentsLabels[index])
+        }
+        
+        resultView.frame = CGRect(x: 0, y: 0, width: 0, height: (componentsLabels.last?.frame.maxY)! + 10)
+        
+        return resultView
+    }
 }
 
 class FoodDeliveryViewController: UIViewController {
@@ -59,6 +130,77 @@ class FoodDeliveryViewController: UIViewController {
     
     var food = [FoodItem()]
     
+    func addToView(item: FoodItem) -> UIView{
+        let cell = UIView(frame: CGRect(x: 0, y: 0, width: view.frame.size.width, height: 100))
+        
+        let photo = UIImageView.init()
+        photo.frame = CGRect(x: cell.bounds.minX + 10, y: cell.bounds.minX + 10, width: 150, height: 150)
+        photo.image = item.image
+        
+        
+        let nameLabel = UILabel.init()
+        nameLabel.frame = CGRect(x: photo.bounds.maxX + 25, y: cell.bounds.minY + 10, width: cell.bounds.maxX - photo.frame.width - 30, height: 50)
+        nameLabel.text = item.name
+        nameLabel.font = UIFont.boldSystemFont(ofSize: 17)
+        nameLabel.numberOfLines = 0
+        
+        
+        let restNameLabel = UILabel.init()
+        restNameLabel.frame = CGRect(x: nameLabel.frame.minX, y: nameLabel.frame.maxY, width: nameLabel.frame.size.width, height: nameLabel.frame.size.height / 2)
+        restNameLabel.text = item.restName
+        restNameLabel.font = UIFont.italicSystemFont(ofSize: 14)
+        restNameLabel.textColor = UIColor.lightGray
+        restNameLabel.numberOfLines = 0
+        
+        
+        let ratingView = item.getVisualRating()
+        ratingView.frame = CGRect(x: restNameLabel.frame.minX, y: restNameLabel.frame.maxY, width: ratingView.frame.size.width, height: ratingView.frame.size.height)
+        
+        
+        let foodTypeLabel = UILabel.init()
+        foodTypeLabel.frame = CGRect(x: ratingView.frame.minX, y: ratingView.frame.maxY + 10, width: nameLabel.frame.size.width, height: 20)
+        foodTypeLabel.text = item.type.rawValue
+        
+        
+        let descriptionView = UIView.init()
+        let descriptionTitle = UILabel.init()
+        
+        descriptionTitle.frame = CGRect(x: 0, y: 0, width: 150, height: 20)
+        descriptionTitle.text = "Описание: "
+        descriptionTitle.font = UIFont.italicSystemFont(ofSize: 18)
+        
+        
+        let descriptionLabel = UILabel.init()
+        descriptionLabel.frame = CGRect(x: 0, y: descriptionTitle.frame.maxY, width: cell.bounds.width - 15, height: 150)
+        descriptionLabel.text = item.description
+        descriptionLabel.numberOfLines = 0
+        
+        
+        descriptionView.frame = CGRect(x: photo.frame.minX, y: photo.frame.maxY + 10, width: cell.bounds.width, height: descriptionLabel.bounds.height + 20)
+        descriptionView.addSubview(descriptionTitle)
+        descriptionView.addSubview(descriptionLabel)
+        
+        
+        let componentsView = item.getComponents()
+        componentsView.frame = CGRect(x: photo.frame.minX, y: descriptionView.frame.maxY + 10, width: cell.bounds.width - 15, height: componentsView.frame.height)
+        
+        let lineLabel = UILabel.init()
+        lineLabel.frame = CGRect(x: cell.frame.minX, y: componentsView.frame.maxY, width: cell.frame.size.width, height: 1)
+        lineLabel.layer.borderWidth = 0.25
+        
+        
+        cell.addSubview(photo)
+        cell.addSubview(nameLabel)
+        cell.addSubview(restNameLabel)
+        cell.addSubview(ratingView)
+        cell.addSubview(foodTypeLabel)
+        cell.addSubview(descriptionView)
+        cell.addSubview(componentsView)
+        cell.addSubview(lineLabel)
+        
+        return cell
+    }
+    
     func makeSomeFood(){
         
         for _ in 1...3 {
@@ -66,24 +208,25 @@ class FoodDeliveryViewController: UIViewController {
         }
         
         food[0].restName = "Texas burgers"
-        food[0].rating = 4.5
+        food[0].rating = 4.75
+        
+        // TODO: Remake image
+        food[0].image = UIImage(systemName: Star.full.rawValue)!
         
         food[0].name = "Техасский оригинальный бургер"
         food[0].description = "Рецепт этого сочного бургера  привезен прямиком из южных широт США. Пропитанный запахом свободы и открытого огня. В сочетании с нашим фирменным соусом \"Техас\" этот бургер превращается в часть искусства, которое вы не можете пропустить!"
         food[0].components.append(contentsOf: ["Говядина", "Соленые огурчики", "Сыр Чеддар", "Помидор", "Салат", "Булочки", "Фирменный соус \"Техас\""])
-        
-        let cell = UIView(frame: CGRect(x: 0, y: 25, width: view.frame.size.width, height: 100))
-        var nameLabel = UILabel.init()
-        nameLabel.text = food[0].name
-        nameLabel.frame = CGRect(x: cell.bounds.minX + 5, y: cell.bounds.minY + 5, width: 150, height: 80)
-        cell.addSubview(nameLabel)
-        foodScrollView.addSubview(cell)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         makeSomeFood()
-        foodScrollView.contentSize = CGSize(width: view.frame.size.width, height: CGFloat(food.count * 100))
+        
+        let cell = addToView(item: food[0])
+        
+        foodScrollView.addSubview(cell)
+        foodScrollView.contentSize = CGSize(width: view.frame.size.width, height: CGFloat(food.count) * cell.frame.size.height)
+        
     }
 
 }

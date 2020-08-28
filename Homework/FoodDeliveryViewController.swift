@@ -24,6 +24,11 @@ class Restaraunt{
     var restName = ""
     var rating = 0.0
     
+    init(name: String, rating: Double) {
+        restName = name
+        self.rating = rating
+    }
+    
     var stars: Dictionary<Star, UIImage> = [
         .empty   :UIImage(systemName: Star.empty.rawValue)!,
         .halfFull:UIImage(systemName: Star.halfFull.rawValue)!,
@@ -95,7 +100,6 @@ class FoodItem: Restaraunt{
         nameLabel.frame = CGRect(x: 0, y: 0, width: 300, height: 20)
         nameLabel.text = "Список ингредиентов: "
         nameLabel.font = UIFont.italicSystemFont(ofSize: 18)
-        nameLabel.layer.borderWidth = 1
         
         resultView.addSubview(nameLabel)
         
@@ -186,7 +190,7 @@ class FoodDeliveryViewController: UIViewController {
         
         let componentsView = item.getComponents()
         componentsView.frame = CGRect(x: photo.frame.minX, y: descriptionView.frame.maxY + 10, width: cell.bounds.width - 15, height: (componentsView.subviews.last?.frame.maxY)!)
-        componentsView.layer.borderWidth = 1
+//        componentsView.layer.borderWidth = 1
         
         cell.frame.size.height += componentsView.frame.height
         
@@ -196,7 +200,6 @@ class FoodDeliveryViewController: UIViewController {
         lineLabel.layer.borderColor = UIColor.red.cgColor
         
         cell.frame.size.height += lineLabel.frame.size.height
-        
         
         cell.addSubview(photo)
         cell.addSubview(nameLabel)
@@ -212,12 +215,15 @@ class FoodDeliveryViewController: UIViewController {
     
     func makeSomeFood(){
         
-        for _ in 1...2 {
-            food.append(FoodItem())
+        let restaraunts: [Restaraunt] = [
+            Restaraunt(name: "Texas burgers", rating: 4.75),
+            Restaraunt(name: "У Джорджины", rating: 4.0),
+            Restaraunt(name: "Море удовольствия", rating: 3.9)]
+        
+        for rest in restaraunts {
+            food.append(FoodItem(name: rest.restName, rating: rest.rating))
         }
         
-        food[0].restName = "Texas burgers"
-        food[0].rating = 4.75
         
         // TODO: Remake image
         food[0].image = UIImage(systemName: Star.full.rawValue)!
@@ -236,9 +242,6 @@ class FoodDeliveryViewController: UIViewController {
         
         
         
-        food[1].restName = "У Джорджины"
-        food[1].rating = 4.0
-        
         food[1].image = UIImage(systemName: "circle.fill")!
         
         food[1].name = "Маргарита"
@@ -249,6 +252,20 @@ class FoodDeliveryViewController: UIViewController {
         ])
         food[1].type = .Pizza
         
+        
+        
+        food[2].image = UIImage(systemName: "square.fill")!
+        
+        food[2].name = "Калифорния"
+        food[2].description = "Классика японского жанра на вашем столе. Попробуйте на вкус один из самых узнаваемых роллов на планете Земля. Нежное сочетание крабового мяса с авокадо и крем-чиз отлично уживается с огурцом и мелкой икрой Тобико"
+        food[2].components.append(contentsOf: [
+            "Рис",
+            "Икра Тобико",
+            "Крем-чиз",
+            "Крабовое мясо",
+            "Огурец",
+            "Авокадо"
+        ])
     }
     
     override func viewDidLoad() {

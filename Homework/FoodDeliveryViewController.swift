@@ -84,7 +84,7 @@ class FoodItem: Restaraunt{
     var name = ""
     var description = ""
     var components: [String] = []
-    var type = FoodType.Burger
+    var type = FoodType.init(rawValue: "")
     
     func getComponents() -> UIView {
         let resultView = UIView.init()
@@ -118,7 +118,7 @@ class FoodItem: Restaraunt{
             resultView.addSubview(componentsLabels[index])
         }
         
-        resultView.frame = CGRect(x: 0, y: 0, width: 0, height: (componentsLabels.last?.frame.maxY)! + 10)
+//        resultView.frame = CGRect(x: 0, y: 0, width: 0, height: (componentsLabels.last?.frame.maxY)! + 10)
         
         return resultView
     }
@@ -128,14 +128,16 @@ class FoodDeliveryViewController: UIViewController {
     
     @IBOutlet weak var foodScrollView: UIScrollView!
     
-    var food = [FoodItem()]
+    var food: [FoodItem] = []
     
-    func addToView(item: FoodItem) -> UIView{
+    func addToView(_ item: FoodItem) -> UIView{
         let cell = UIView(frame: CGRect(x: 0, y: 0, width: view.frame.size.width, height: 100))
         
         let photo = UIImageView.init()
         photo.frame = CGRect(x: cell.bounds.minX + 10, y: cell.bounds.minX + 10, width: 150, height: 150)
         photo.image = item.image
+        
+        cell.frame.size.height += photo.frame.size.height
         
         
         let nameLabel = UILabel.init()
@@ -159,8 +161,7 @@ class FoodDeliveryViewController: UIViewController {
         
         let foodTypeLabel = UILabel.init()
         foodTypeLabel.frame = CGRect(x: ratingView.frame.minX, y: ratingView.frame.maxY + 10, width: nameLabel.frame.size.width, height: 20)
-        foodTypeLabel.text = item.type.rawValue
-        
+        foodTypeLabel.text = item.type?.rawValue
         
         let descriptionView = UIView.init()
         let descriptionTitle = UILabel.init()
@@ -176,17 +177,25 @@ class FoodDeliveryViewController: UIViewController {
         descriptionLabel.numberOfLines = 0
         
         
-        descriptionView.frame = CGRect(x: photo.frame.minX, y: photo.frame.maxY + 10, width: cell.bounds.width, height: descriptionLabel.bounds.height + 20)
+        descriptionView.frame = CGRect(x: photo.frame.minX, y: photo.frame.maxY + 10, width: cell.bounds.width, height: descriptionLabel.frame.height + 20)
         descriptionView.addSubview(descriptionTitle)
         descriptionView.addSubview(descriptionLabel)
         
+        cell.frame.size.height += descriptionView.frame.height
+        
         
         let componentsView = item.getComponents()
-        componentsView.frame = CGRect(x: photo.frame.minX, y: descriptionView.frame.maxY + 10, width: cell.bounds.width - 15, height: componentsView.frame.height)
+        componentsView.frame = CGRect(x: photo.frame.minX, y: descriptionView.frame.maxY + 10, width: cell.bounds.width - 15, height: (componentsView.subviews.last?.frame.maxY)!)
+        componentsView.layer.borderWidth = 1
+        
+        cell.frame.size.height += componentsView.frame.height
         
         let lineLabel = UILabel.init()
-        lineLabel.frame = CGRect(x: cell.frame.minX, y: componentsView.frame.maxY, width: cell.frame.size.width, height: 1)
+        lineLabel.frame = CGRect(x: cell.frame.minX, y: cell.frame.height, width: cell.frame.size.width, height: 1)
         lineLabel.layer.borderWidth = 0.25
+        lineLabel.layer.borderColor = UIColor.red.cgColor
+        
+        cell.frame.size.height += lineLabel.frame.size.height
         
         
         cell.addSubview(photo)
@@ -203,7 +212,7 @@ class FoodDeliveryViewController: UIViewController {
     
     func makeSomeFood(){
         
-        for _ in 1...3 {
+        for _ in 1...2 {
             food.append(FoodItem())
         }
         
@@ -214,19 +223,53 @@ class FoodDeliveryViewController: UIViewController {
         food[0].image = UIImage(systemName: Star.full.rawValue)!
         
         food[0].name = "Техасский оригинальный бургер"
-        food[0].description = "Рецепт этого сочного бургера  привезен прямиком из южных широт США. Пропитанный запахом свободы и открытого огня. В сочетании с нашим фирменным соусом \"Техас\" этот бургер превращается в часть искусства, которое вы не можете пропустить!"
-        food[0].components.append(contentsOf: ["Говядина", "Соленые огурчики", "Сыр Чеддар", "Помидор", "Салат", "Булочки", "Фирменный соус \"Техас\""])
+        food[0].description = "Рецепт этого сочного бургера  привезен прямиком из южных широт США. Пропитанный запахом свободы и открытого огня. В сочетании с нашим фирменным соусом \"Техас\" этот бургер превращается в произведение искусства, которое вы не можете пропустить!"
+        food[0].components.append(contentsOf: [
+            "Говядина",
+            "Соленые огурчики",
+            "Сыр Чеддар",
+            "Помидор",
+            "Салат",
+            "Фирменный соус \"Техас\""
+        ])
+        food[0].type = .Burger
+        
+        
+        
+        food[1].restName = "У Джорджины"
+        food[1].rating = 4.0
+        
+        food[1].image = UIImage(systemName: "circle.fill")!
+        
+        food[1].name = "Маргарита"
+        food[1].description = "Классическая пицца без лишних наполнителей. Нежное тесто, приготовленное вручную, сыр моцарелла и пикантный томатный соус по оригинальному рецепту перенесет вас из любой точки мира в солнечную Италию."
+        food[1].components.append(contentsOf: [
+            "Сыр моцарелла",
+            "Томатный соус"
+        ])
+        food[1].type = .Pizza
+        
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         makeSomeFood()
         
-        let cell = addToView(item: food[0])
+        var cells: [UIView] = []
+        var h: CGFloat = 0
         
-        foodScrollView.addSubview(cell)
-        foodScrollView.contentSize = CGSize(width: view.frame.size.width, height: CGFloat(food.count) * cell.frame.size.height)
+        for item in food{
+            cells.append(addToView(item))
+        }
+            
+        for cell in cells {
+            cell.frame = CGRect(x: 0, y: h, width: cell.frame.size.width, height: cell.frame.size.height)
+            h += cell.frame.height
+            
+            foodScrollView.addSubview(cell)
+        }
         
+        foodScrollView.contentSize = CGSize(width: view.frame.size.width, height: h + 15)
     }
 
 }

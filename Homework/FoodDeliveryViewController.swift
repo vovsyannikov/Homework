@@ -140,6 +140,8 @@ class FoodDeliveryViewController: UIViewController {
         let photo = UIImageView.init()
         photo.frame = CGRect(x: cell.bounds.minX + 10, y: cell.bounds.minX + 10, width: 150, height: 150)
         photo.image = item.image
+        photo.contentMode = UIView.ContentMode.scaleAspectFit
+        
         
         cell.frame.size.height += photo.frame.size.height
         
@@ -226,7 +228,7 @@ class FoodDeliveryViewController: UIViewController {
         
         
         // TODO: Remake image
-        food[0].image = UIImage(systemName: Star.full.rawValue)!
+        food[0].image = #imageLiteral(resourceName: "Burger.jpg") // Изображение бургера
         
         food[0].name = "Техасский оригинальный бургер"
         food[0].description = "Рецепт этого сочного бургера  привезен прямиком из южных широт США. Пропитанный запахом свободы и открытого огня. В сочетании с нашим фирменным соусом \"Техас\" этот бургер превращается в произведение искусства, которое вы не можете пропустить!"
@@ -242,7 +244,7 @@ class FoodDeliveryViewController: UIViewController {
         
         
         
-        food[1].image = UIImage(systemName: "circle.fill")!
+        food[1].image = #imageLiteral(resourceName: "Margarita.jpg")
         
         food[1].name = "Маргарита"
         food[1].description = "Классическая пицца без лишних наполнителей. Нежное тесто, приготовленное вручную, сыр моцарелла и пикантный томатный соус по оригинальному рецепту перенесет вас из любой точки мира в солнечную Италию."
@@ -254,7 +256,7 @@ class FoodDeliveryViewController: UIViewController {
         
         
         
-        food[2].image = UIImage(systemName: "square.fill")!
+        food[2].image = #imageLiteral(resourceName: "California.jpg")
         
         food[2].name = "Калифорния"
         food[2].description = "Классика японского жанра на вашем столе. Попробуйте на вкус один из самых узнаваемых роллов на планете Земля. Нежное сочетание крабового мяса с авокадо и крем-чиз отлично уживается с огурцом и мелкой икрой Тобико"

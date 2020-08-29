@@ -78,8 +78,9 @@ class OptionsViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let cell = sender as? OptionTableViewCell, let index = optionsTableView.indexPath(for: cell){
+        if let cell = sender as? OptionTableViewCell, let _ = optionsTableView.indexPath(for: cell){
             print(cell.nameLabel.text!)
+            
         }
     }
     

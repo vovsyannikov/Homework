@@ -31,6 +31,9 @@ struct Option{
 
 class OptionsViewController: UIViewController {
     
+    @IBOutlet weak var optionsTableView: UITableView!
+    
+    
     func countElementsInSection(opt: [Option], in section: Int) -> Int{
         var count = 0
         
@@ -71,7 +74,18 @@ class OptionsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         print()
+
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let cell = sender as? OptionTableViewCell, let index = optionsTableView.indexPath(for: cell){
+            print(cell.nameLabel.text!)
+        }
+    }
+    
+    
+    
+    
 
 }
 
@@ -120,5 +134,7 @@ extension OptionsViewController: UITableViewDataSource, UITableViewDelegate{
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
     }
+    
+    
     
 }

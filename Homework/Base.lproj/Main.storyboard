@@ -8,7 +8,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Таблицы-->
+        <!--Настройки-->
         <scene sceneID="Y3h-3c-fjv">
             <objects>
                 <viewController id="zBU-bn-mq0" customClass="OptionsViewController" customModule="Homework" customModuleProvider="target" sceneMemberID="viewController">
@@ -17,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="UcX-rd-pEX">
-                                <rect key="frame" x="0.0" y="44" width="414" height="769"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Standart" rowHeight="70" id="GqH-6E-ewA" customClass="OptionTableViewCell" customModule="Homework" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="70"/>
@@ -61,6 +61,7 @@
                                             <outlet property="descriptionLabel" destination="f0h-Wc-gxn" id="ZHR-ze-bGV"/>
                                             <outlet property="iconImageView" destination="NEF-w6-CMU" id="Ld5-lN-mEo"/>
                                             <outlet property="nameLabel" destination="4pb-Jq-xV4" id="RPA-BK-oRf"/>
+                                            <segue destination="RaA-ff-vjh" kind="show" id="SW5-lw-hbb"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Button" rowHeight="70" id="3dc-Yu-WBF" customClass="OptionTableViewCell" customModule="Homework" customModuleProvider="target">
@@ -129,11 +130,42 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="8Ec-Oc-IWo"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Таблицы" image="rectangle.grid.1x2.fill" catalog="system" id="iWD-fo-pSG"/>
+                    <navigationItem key="navigationItem" title="Настройки" id="dYA-tQ-LAI"/>
+                    <connections>
+                        <outlet property="optionsTableView" destination="UcX-rd-pEX" id="GBg-lA-AJK"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Fa7-xQ-3le" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1047.8260869565217" y="-567.1875"/>
+            <point key="canvasLocation" x="1959" y="-567"/>
+        </scene>
+        <!--Options View Controller-->
+        <scene sceneID="kSI-Lt-DT8">
+            <objects>
+                <viewController id="RaA-ff-vjh" customClass="OptionsViewController" customModule="Homework" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Pzf-JO-pPG">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Шаблон" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IAZ-h3-Ptm">
+                                <rect key="frame" x="152.5" y="430" width="109.5" height="36"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="IAZ-h3-Ptm" firstAttribute="centerY" secondItem="Pzf-JO-pPG" secondAttribute="centerY" id="3Ps-Cj-pse"/>
+                            <constraint firstItem="IAZ-h3-Ptm" firstAttribute="centerX" secondItem="Pzf-JO-pPG" secondAttribute="centerX" id="jXX-yx-vJo"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Kgy-S3-b8s"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="qSq-JQ-EUD"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1Ft-hd-iVm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2797.1014492753625" y="-566.51785714285711"/>
         </scene>
         <!--Коллекция-->
         <scene sceneID="tne-QT-ifu">
@@ -286,13 +318,32 @@
                     </tabBar>
                     <connections>
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="TWQ-WP-GDx"/>
-                        <segue destination="zBU-bn-mq0" kind="relationship" relationship="viewControllers" id="j4E-ej-MCX"/>
+                        <segue destination="lmj-iF-94J" kind="relationship" relationship="viewControllers" id="j4E-ej-MCX"/>
                         <segue destination="lxZ-D0-lcm" kind="relationship" relationship="viewControllers" id="vvL-O1-VaJ"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jXo-S6-pEA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="137.68115942028987" y="92.410714285714278"/>
+        </scene>
+        <!--Таблицы-->
+        <scene sceneID="4T8-QJ-6GM">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="lmj-iF-94J" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Таблицы" image="rectangle.grid.1x2.fill" catalog="system" id="iWD-fo-pSG"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="4PK-j0-Nb2">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="zBU-bn-mq0" kind="relationship" relationship="rootViewController" id="pUX-Gk-OoI"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3S3-u9-bZc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1047.8260869565217" y="-567.1875"/>
         </scene>
     </scenes>
     <resources>

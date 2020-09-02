@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3C441F3124FFBF750072D6CA /* RandomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C441F3024FFBF750072D6CA /* RandomButton.swift */; };
 		3C8D74B224F2E87C00819F8B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C8D74B124F2E87C00819F8B /* AppDelegate.swift */; };
 		3C8D74B424F2E87C00819F8B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C8D74B324F2E87C00819F8B /* SceneDelegate.swift */; };
 		3C8D74B624F2E87C00819F8B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C8D74B524F2E87C00819F8B /* ViewController.swift */; };
@@ -36,6 +37,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3C441F3024FFBF750072D6CA /* RandomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomButton.swift; sourceTree = "<group>"; };
 		3C8D74AE24F2E87C00819F8B /* Homework.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Homework.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3C8D74B124F2E87C00819F8B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3C8D74B324F2E87C00819F8B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -105,6 +107,7 @@
 				3C8D74B324F2E87C00819F8B /* SceneDelegate.swift */,
 				3C8D74B524F2E87C00819F8B /* ViewController.swift */,
 				3C8D74B724F2E87C00819F8B /* Main.storyboard */,
+				3C441F3024FFBF750072D6CA /* RandomButton.swift */,
 				3CD1079924FF970D00741864 /* ClockView.swift */,
 				3C8D74BA24F2E87F00819F8B /* Assets.xcassets */,
 				3C8D74BC24F2E87F00819F8B /* LaunchScreen.storyboard */,
@@ -283,6 +286,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3C441F3124FFBF750072D6CA /* RandomButton.swift in Sources */,
 				3C8D74B624F2E87C00819F8B /* ViewController.swift in Sources */,
 				3CD1079A24FF970D00741864 /* ClockView.swift in Sources */,
 				3C8D74B224F2E87C00819F8B /* AppDelegate.swift in Sources */,

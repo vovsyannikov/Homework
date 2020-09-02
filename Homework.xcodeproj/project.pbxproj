@@ -16,6 +16,7 @@
 		3C8D74BE24F2E87F00819F8B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3C8D74BC24F2E87F00819F8B /* LaunchScreen.storyboard */; };
 		3C8D74C924F2E87F00819F8B /* HomeworkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C8D74C824F2E87F00819F8B /* HomeworkTests.swift */; };
 		3C8D74D424F2E87F00819F8B /* HomeworkUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C8D74D324F2E87F00819F8B /* HomeworkUITests.swift */; };
+		3CB7398624FFC7DB00089374 /* SegmentsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CB7398524FFC7DB00089374 /* SegmentsView.swift */; };
 		3CD1079A24FF970D00741864 /* ClockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CD1079924FF970D00741864 /* ClockView.swift */; };
 /* End PBXBuildFile section */
 
@@ -52,6 +53,7 @@
 		3C8D74CF24F2E87F00819F8B /* HomeworkUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HomeworkUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3C8D74D324F2E87F00819F8B /* HomeworkUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeworkUITests.swift; sourceTree = "<group>"; };
 		3C8D74D524F2E87F00819F8B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3CB7398524FFC7DB00089374 /* SegmentsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentsView.swift; sourceTree = "<group>"; };
 		3CD1079924FF970D00741864 /* ClockView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClockView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -83,6 +85,7 @@
 		3C8D74A524F2E87C00819F8B = {
 			isa = PBXGroup;
 			children = (
+				3CB7398524FFC7DB00089374 /* SegmentsView.swift */,
 				3C8D74B024F2E87C00819F8B /* Homework */,
 				3C8D74C724F2E87F00819F8B /* HomeworkTests */,
 				3C8D74D224F2E87F00819F8B /* HomeworkUITests */,
@@ -286,6 +289,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3CB7398624FFC7DB00089374 /* SegmentsView.swift in Sources */,
 				3C441F3124FFBF750072D6CA /* RandomButton.swift in Sources */,
 				3C8D74B624F2E87C00819F8B /* ViewController.swift in Sources */,
 				3CD1079A24FF970D00741864 /* ClockView.swift in Sources */,

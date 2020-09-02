@@ -80,6 +80,7 @@ class ClockView: UIView {
     func drawHands(){
         
         for hand in [hands[.second]!, hands[.minute]!, hands[.hour]!]{
+            hand.transform = .identity
             hand.layer.anchorPoint = CGPoint(x: 0.5, y: 1)
         }
         
@@ -112,7 +113,7 @@ class ClockView: UIView {
         
         drawMarkers()
         drawHands()
-        
+        setTime()
         
         if isDrawn{ return }
         isDrawn = true
@@ -125,7 +126,6 @@ class ClockView: UIView {
         }
         addSubview(centerDot)
         
-//        setTime()
     }
 
 }

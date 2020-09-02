@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina5_9" orientation="portrait" appearance="light"/>
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -12,18 +12,18 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Homework" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NYf-Gl-OAa" customClass="ClockView" customModule="Homework" customModuleProvider="target">
-                                <rect key="frame" x="87" y="305.66666666666669" width="201" height="201"/>
+                                <rect key="frame" x="87" y="328" width="240" height="240"/>
                                 <color key="backgroundColor" systemColor="systemGray6Color" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="NYf-Gl-OAa" secondAttribute="height" multiplier="1:1" id="NPk-0I-6Am"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QJA-Ge-kZd" customClass="RandomButton" customModule="Homework" customModuleProvider="target">
-                                <rect key="frame" x="87" y="581.66666666666663" width="201" height="50"/>
+                                <rect key="frame" x="87" y="643" width="240" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="n30-DB-22h"/>
                                 </constraints>
@@ -40,14 +40,14 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DxI-Gp-EgO" customClass="SegmentsView" customModule="Homework" customModuleProvider="target">
-                                <rect key="frame" x="87" y="190.66666666666666" width="201" height="40"/>
+                                <rect key="frame" x="87" y="213" width="240" height="40"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="mR3-yw-dhA"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="color" keyPath="backColor">
-                                        <color key="value" red="0.5" green="0.0" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="value" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
@@ -57,6 +57,7 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="DxI-Gp-EgO" secondAttribute="trailing" constant="87" id="4Cs-uf-iHQ"/>
                             <constraint firstItem="NYf-Gl-OAa" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="FJk-6Z-i3l"/>
                             <constraint firstItem="NYf-Gl-OAa" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="K9s-n2-hJH"/>
+                            <constraint firstItem="DxI-Gp-EgO" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Yk0-CV-3u9"/>
                             <constraint firstItem="NYf-Gl-OAa" firstAttribute="width" secondItem="QJA-Ge-kZd" secondAttribute="width" id="ZKe-2P-ytv"/>
                             <constraint firstItem="QJA-Ge-kZd" firstAttribute="top" secondItem="NYf-Gl-OAa" secondAttribute="bottom" constant="75" id="asI-vt-wKQ"/>
                             <constraint firstItem="DxI-Gp-EgO" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="87" id="cM1-6k-gI0"/>

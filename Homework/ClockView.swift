@@ -54,6 +54,26 @@ class ClockView: UIView {
             addSubview(mark)
         }
     }
+    // Ломает всю систему
+//    func setTime(){
+//        for hand in hands.values{
+//            hand.transform = CGAffineTransform(rotationAngle: 2 *  CGFloat.pi)
+//        }
+//
+//        let hour: CGFloat = 9
+//        let min: CGFloat = 41
+//        let sec: CGFloat = 0
+//
+//        let angle: Dictionary<HandType, CGFloat> = [
+//            .hour   : CGFloat.pi * 2 * (hour/CGFloat(12)),
+//            .minute : CGFloat.pi * 2 * (min/CGFloat(60)),
+//            .second : CGFloat.pi * 2 * (sec/CGFloat(60))
+//        ]
+//
+//        hands[.hour]?.transform = CGAffineTransform(rotationAngle: angle[.hour]!)
+//        hands[.minute]?.transform = CGAffineTransform(rotationAngle: angle[.minute]!)
+//        hands[.second]?.transform = CGAffineTransform(rotationAngle: angle[.second]!)
+//    }
     func drawHands(){
         
         for hand in [hands[.second]!, hands[.minute]!, hands[.hour]!]{
@@ -83,6 +103,8 @@ class ClockView: UIView {
         hands[.second]?.backgroundColor = secondColor
         
         addSubview(centerDot)
+        
+//        setTime()
         
     }
 

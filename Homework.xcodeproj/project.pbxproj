@@ -85,7 +85,6 @@
 		3C8D74A524F2E87C00819F8B = {
 			isa = PBXGroup;
 			children = (
-				3CB7398524FFC7DB00089374 /* SegmentsView.swift */,
 				3C8D74B024F2E87C00819F8B /* Homework */,
 				3C8D74C724F2E87F00819F8B /* HomeworkTests */,
 				3C8D74D224F2E87F00819F8B /* HomeworkUITests */,
@@ -112,6 +111,7 @@
 				3C8D74B724F2E87C00819F8B /* Main.storyboard */,
 				3C441F3024FFBF750072D6CA /* RandomButton.swift */,
 				3CD1079924FF970D00741864 /* ClockView.swift */,
+				3CB7398524FFC7DB00089374 /* SegmentsView.swift */,
 				3C8D74BA24F2E87F00819F8B /* Assets.xcassets */,
 				3C8D74BC24F2E87F00819F8B /* LaunchScreen.storyboard */,
 				3C8D74BF24F2E87F00819F8B /* Info.plist */,

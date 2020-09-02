@@ -22,7 +22,7 @@ class SegmentsView: UIView {
     private let segmentView = UISegmentedControl()
     @IBInspectable var firstTitle: String = "First"
     @IBInspectable var secondTitle: String = "Second"
-    @IBInspectable var selectedSegmentColor: UIColor = UIColor.blue
+    @IBInspectable var selectedSegmentColor: UIColor = UIColor.white
     @IBInspectable var backColor: UIColor = UIColor.systemGray6
     
     func createSegmentView(){

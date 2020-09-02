@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <device id="retina5_9" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -39,25 +39,30 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DxI-Gp-EgO" customClass="SegmentsView" customModule="Homework" customModuleProvider="target">
-                                <rect key="frame" x="87" y="162" width="240" height="36"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DxI-Gp-EgO" customClass="SegmentsView" customModule="Homework" customModuleProvider="target">
+                                <rect key="frame" x="87" y="213" width="240" height="40"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="mR3-yw-dhA"/>
+                                </constraints>
                                 <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="selectedSegmentColor">
-                                        <color key="value" red="0.1960784314" green="1" blue="0.1960784314" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="backColor">
+                                        <color key="value" red="0.5" green="0.0" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="DxI-Gp-EgO" secondAttribute="trailing" constant="87" id="4Cs-uf-iHQ"/>
                             <constraint firstItem="NYf-Gl-OAa" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="FJk-6Z-i3l"/>
                             <constraint firstItem="NYf-Gl-OAa" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="K9s-n2-hJH"/>
                             <constraint firstItem="NYf-Gl-OAa" firstAttribute="width" secondItem="QJA-Ge-kZd" secondAttribute="width" id="ZKe-2P-ytv"/>
                             <constraint firstItem="QJA-Ge-kZd" firstAttribute="top" secondItem="NYf-Gl-OAa" secondAttribute="bottom" constant="75" id="asI-vt-wKQ"/>
+                            <constraint firstItem="DxI-Gp-EgO" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="87" id="cM1-6k-gI0"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="NYf-Gl-OAa" secondAttribute="trailing" constant="87" id="cqg-Fn-cvb"/>
                             <constraint firstItem="NYf-Gl-OAa" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="87" id="dLP-nq-LPU"/>
+                            <constraint firstItem="NYf-Gl-OAa" firstAttribute="top" secondItem="DxI-Gp-EgO" secondAttribute="bottom" constant="75" id="gNY-B2-LCp"/>
                             <constraint firstItem="QJA-Ge-kZd" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="nFa-f6-0Vv"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>

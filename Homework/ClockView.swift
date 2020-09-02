@@ -17,6 +17,10 @@ enum HandType{
 @IBDesignable
 class ClockView: UIView {
     
+    var isDrawn = false
+    
+    let centerDot = UIView()
+    
     // Отметки на циферблате для 12, 3, 6 и 9 часов
     private let markers: Dictionary<Int, UIView> = [12 : UIView(), 3 : UIView(), 6 : UIView(), 9 : UIView()]
     let markerColor = UIColor.blue
@@ -51,40 +55,37 @@ class ClockView: UIView {
         
         for mark in markers.values{
             mark.backgroundColor = markerColor
-            addSubview(mark)
         }
     }
     // Ломает всю систему
-//    func setTime(){
-//        for hand in hands.values{
-//            hand.transform = CGAffineTransform(rotationAngle: 2 *  CGFloat.pi)
-//        }
-//
-//        let hour: CGFloat = 9
-//        let min: CGFloat = 41
-//        let sec: CGFloat = 0
-//
-//        let angle: Dictionary<HandType, CGFloat> = [
-//            .hour   : CGFloat.pi * 2 * (hour/CGFloat(12)),
-//            .minute : CGFloat.pi * 2 * (min/CGFloat(60)),
-//            .second : CGFloat.pi * 2 * (sec/CGFloat(60))
-//        ]
-//
-//        hands[.hour]?.transform = CGAffineTransform(rotationAngle: angle[.hour]!)
-//        hands[.minute]?.transform = CGAffineTransform(rotationAngle: angle[.minute]!)
-//        hands[.second]?.transform = CGAffineTransform(rotationAngle: angle[.second]!)
-//    }
+    func setTime(){
+        for hand in hands.values{
+            hand.transform = CGAffineTransform(rotationAngle: 2 *  CGFloat.pi)
+        }
+
+        let hour: CGFloat = 9
+        let min: CGFloat = 41
+        let sec: CGFloat = 0
+
+        let angle: Dictionary<HandType, CGFloat> = [
+            .hour   : CGFloat.pi * 2 * (hour/CGFloat(12)),
+            .minute : CGFloat.pi * 2 * (min/CGFloat(60)),
+            .second : CGFloat.pi * 2 * (sec/CGFloat(60))
+        ]
+
+        hands[.hour]?.transform = CGAffineTransform(rotationAngle: angle[.hour]!)
+        hands[.minute]?.transform = CGAffineTransform(rotationAngle: angle[.minute]!)
+        hands[.second]?.transform = CGAffineTransform(rotationAngle: angle[.second]!)
+    }
     func drawHands(){
         
         for hand in [hands[.second]!, hands[.minute]!, hands[.hour]!]{
             hand.layer.anchorPoint = CGPoint(x: 0.5, y: 1)
-            addSubview(hand)
         }
         
         let width = bounds.width
         let height = bounds.height
         
-        let centerDot = UIView()
         
         let dotSize: CGFloat = 15
         
@@ -102,10 +103,6 @@ class ClockView: UIView {
         hands[.second]?.frame = CGRect(x: width/2 - secondWidth/2, y: secondOffset, width: secondWidth, height: height/2 - secondOffset)
         hands[.second]?.backgroundColor = secondColor
         
-        addSubview(centerDot)
-        
-//        setTime()
-        
     }
 
     override func layoutSubviews() {
@@ -115,6 +112,20 @@ class ClockView: UIView {
         
         drawMarkers()
         drawHands()
+        
+        
+        if isDrawn{ return }
+        isDrawn = true
+        
+        for mark in markers.values{
+            addSubview(mark)
+        }
+        for hand in hands.values{
+            addSubview(hand)
+        }
+        addSubview(centerDot)
+        
+//        setTime()
     }
 
 }

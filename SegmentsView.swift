@@ -23,6 +23,7 @@ class SegmentsView: UIView {
     @IBInspectable var firstTitle: String = "First"
     @IBInspectable var secondTitle: String = "Second"
     @IBInspectable var selectedSegmentColor: UIColor = UIColor.blue
+    @IBInspectable var backColor: UIColor = UIColor.systemGray6
     
     func createSegmentView(){
         segmentView.insertSegment(withTitle: firstTitle, at: 0, animated: false)
@@ -30,6 +31,7 @@ class SegmentsView: UIView {
         segmentView.frame = CGRect(x: 0, y: 0, width: bounds.width, height: bounds.height)
         segmentView.selectedSegmentIndex = 0
         segmentView.selectedSegmentTintColor = selectedSegmentColor
+        segmentView.backgroundColor = backColor
     }
     
     override func layoutSubviews() {
@@ -37,12 +39,13 @@ class SegmentsView: UIView {
         
         createSegmentView()
         
+        delegate?.getSelectedSegment(segmentView.selectedSegmentIndex)
+        
         if isDrawn{return}
         isDrawn = true
         
         addSubview(segmentView)
         
-        delegate?.getSelectedSegment(segmentView.selectedSegmentIndex)
     }
 
 }

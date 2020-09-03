@@ -34,8 +34,6 @@ class SegmentsView: UIView {
         segmentView.selectedSegmentTintColor = selectedSegmentColor
         segmentView.backgroundColor = backColor
         segmentView.contentMode = UIView.ContentMode.scaleAspectFit
-        
-        print(segmentView.numberOfSegments)
     }
     
     override func layoutSubviews() {

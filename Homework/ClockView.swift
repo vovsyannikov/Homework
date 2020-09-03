@@ -106,8 +106,7 @@ class ClockView: UIView {
         
     }
 
-    override func layoutSubviews() {
-        super.layoutSubviews()
+    func updateFace() {
         
         layer.cornerRadius = frame.width / 2
         
@@ -128,4 +127,16 @@ class ClockView: UIView {
         
     }
 
+    
+    override func prepareForInterfaceBuilder() {
+        super.prepareForInterfaceBuilder()
+        updateFace()
+    }
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        DispatchQueue.main.async {
+            self.updateFace()
+        }
+    }
 }

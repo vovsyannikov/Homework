@@ -25,6 +25,37 @@ class WeatherLoader{
     var delegate: WeatherLoaderDelegate?
     
     func loadWeatherStandartCurrent(){
+        
+        func getFinalData(from jsonDict: NSDictionary) -> NSDictionary{
+            var finalData = Dictionary<String, Any>()
+            
+            for (k, data) in jsonDict{
+                if k as! String == "dt"{
+                    finalData[k as! String] = data
+                }
+                if k as! String == "weather"{
+                    for el in data as! NSArray{
+                        for (key, dict) in  el as! NSDictionary{
+                            if key as! String == "main"{
+                                finalData["description"] = dict
+                            }
+                        }
+                    }
+                }
+                if k as! String == "main"{
+                    for (key, el) in data as! NSDictionary{
+                        if key as! String == "temp"{
+                            finalData[key as! String] = el
+                        }
+                    }
+                }
+                
+            }
+            
+            return finalData as NSDictionary
+            
+        }
+        
         let urlString = Constant.URLCurrent.rawValue + "&mode=json" + Constant.appID.rawValue
         let url = URL(string: urlString)!
         let request = URLRequest(url: url)
@@ -38,33 +69,10 @@ class WeatherLoader{
                 print(jsonDict)
                 var weather: [Weather] = []
                 
-//                print("\n\ndata:")
-                var finalData = Dictionary<String, Any>()
-                for (k, data) in jsonDict{
-                    if k as! String == "dt"{
-                        finalData[k as! String] = data
-                    }
-                    if k as! String == "weather"{
-                        for el in data as! NSArray{
-                            for (key, dict) in  el as! NSDictionary{
-                                if key as! String == "main"{
-                                    finalData["description"] = dict
-                                }
-                            }
-                        }
-                    }
-                    if k as! String == "main"{
-                        for (key, el) in data as! NSDictionary{
-                            if key as! String == "temp"{
-                                finalData[key as! String] = el
-                            }
-                        }
-                    }
-                    
-                }
-                if let w = Weather(data: finalData as NSDictionary){
+                if let w = Weather(data: getFinalData(from: jsonDict)){
                     weather.append(w)
                 }
+                print(weather.count)
                 self.delegate?.loaded(weather)
             }
         }

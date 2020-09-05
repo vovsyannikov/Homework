@@ -17,10 +17,11 @@ enum Constant: String{
 }
 
 protocol WeatherLoaderDelegate {
-    func loaded(weather: [Weather])
+    func loaded(_ weather: [Weather])
 }
 
 class WeatherLoader{
+    
     var delegate: WeatherLoaderDelegate?
     
     func loadWeatherStandartCurrent(){
@@ -30,8 +31,41 @@ class WeatherLoader{
         
         let task = URLSession.shared.dataTask(with: request){
             data, response, error in
-            if let data = data, let json = try? JSONSerialization.jsonObject(with: data, options: .allowFragments){
-//                print(json)
+            if let data = data,
+                let json = try? JSONSerialization.jsonObject(with: data, options: .allowFragments),
+                let jsonDict = json as? NSDictionary{
+                print("\n\njsonDict:")
+                print(jsonDict)
+                var weather: [Weather] = []
+                
+//                print("\n\ndata:")
+                var finalData = Dictionary<String, Any>()
+                for (k, data) in jsonDict{
+                    if k as! String == "dt"{
+                        finalData[k as! String] = data
+                    }
+                    if k as! String == "weather"{
+                        for el in data as! NSArray{
+                            for (key, dict) in  el as! NSDictionary{
+                                if key as! String == "main"{
+                                    finalData["description"] = dict
+                                }
+                            }
+                        }
+                    }
+                    if k as! String == "main"{
+                        for (key, el) in data as! NSDictionary{
+                            if key as! String == "temp"{
+                                finalData[key as! String] = el
+                            }
+                        }
+                    }
+                    
+                }
+                if let w = Weather(data: finalData as NSDictionary){
+                    weather.append(w)
+                }
+                self.delegate?.loaded(weather)
             }
         }
         task.resume()

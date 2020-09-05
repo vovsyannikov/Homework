@@ -10,9 +10,11 @@ import UIKit
 
 class StandartViewController: UIViewController {
     
+    let wLoader = WeatherLoader()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        WeatherLoader().loadWeatherStandartCurrent()
     }
     
 

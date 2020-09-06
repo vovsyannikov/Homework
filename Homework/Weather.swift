@@ -48,7 +48,7 @@ struct MyDate{
     
     func getDate() -> String{
         var result = ""
-        let currentDate = MyDate(from: Date(timeIntervalSinceNow: 0))
+        let currentDate = MyDate(from: Date(timeIntervalSinceNow: 10800))
         
         
         let dayDistance = self.day - currentDate.day

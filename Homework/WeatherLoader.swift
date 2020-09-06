@@ -25,8 +25,7 @@ class WeatherLoader{
     var delegate: WeatherLoaderDelegate?
     var weatherForecast: [Weather] = []
     
-    func loadWeatherStandartCurrent(){
-        
+    func loadCurrentWeatherStandart(){
         func getFinalData(from jsonDict: NSDictionary) -> NSDictionary{
             var finalData = Dictionary<String, Any>()
             
@@ -69,6 +68,61 @@ class WeatherLoader{
                 
                 if let w = Weather(data: getFinalData(from: jsonDict)){
                     self.weatherForecast.append(w)
+                }
+                DispatchQueue.main.async {
+                    self.delegate?.loaded(self.weatherForecast)
+                }
+            }
+        }
+        task.resume()
+    }
+    
+    func loadDialyWeatherStandart(){
+        func getFinalData(from jsonDict: NSDictionary) -> NSDictionary{
+            var finalData = Dictionary<String, Any>()
+            
+            for (k, data) in jsonDict{
+                if k as! String == "dt"{
+                    finalData[k as! String] = data
+                }
+                if k as! String == "weather"{
+                    for el in data as! NSArray{
+                        for (key, dict) in  el as! NSDictionary{
+                            if key as! String == "main"{
+                                finalData["description"] = dict
+                            }
+                        }
+                    }
+                }
+                if k as! String == "temp"{
+                    for (key, el) in data as! NSDictionary{
+                        if key as! String == "day"{
+                            finalData["temp"] = el
+                        }
+                    }
+                }
+            }
+            
+            return finalData as NSDictionary
+        }
+        
+        let urlString = Constant.URL7Days.rawValue + Constant.appID.rawValue
+        let url = URL(string: urlString)!
+        let request = URLRequest(url: url)
+        
+        let task = URLSession.shared.dataTask(with: request){
+            data, response, error in
+            if let data = data,
+                let json = try? JSONSerialization.jsonObject(with: data, options: .allowFragments),
+                let jsonDict = json as? NSDictionary{
+//                    print("\n\njsonDict:")
+//                    print(jsonDict["list"])
+                
+                for dict in jsonDict["list"] as! NSArray {
+                    if self.weatherForecast.count == 8{ break }
+                    if let w = Weather(data: getFinalData(from: dict as! NSDictionary)){
+                        self.weatherForecast.append(w)
+                    }
                 }
                 DispatchQueue.main.async {
                     self.delegate?.loaded(self.weatherForecast)

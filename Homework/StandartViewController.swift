@@ -19,7 +19,8 @@ class StandartViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         wLoader.delegate = self
-        wLoader.loadWeatherStandartCurrent()
+//        wLoader.loadCurrentWeatherStandart()
+        wLoader.loadDialyWeatherStandart()
     }
     
 
@@ -27,7 +28,7 @@ class StandartViewController: UIViewController {
 
 extension StandartViewController: WeatherLoaderDelegate{
     func loaded(_ weather: [Weather]) {
-        self.weatherForecast.append(contentsOf: weather)
+        self.weatherForecast = weather
         weatherTableView.reloadData()
     }
 }

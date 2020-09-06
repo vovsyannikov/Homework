@@ -23,6 +23,7 @@ protocol WeatherLoaderDelegate {
 class WeatherLoader{
     
     var delegate: WeatherLoaderDelegate?
+    var weatherForecast: [Weather] = []
     
     func loadWeatherStandartCurrent(){
         
@@ -49,14 +50,12 @@ class WeatherLoader{
                         }
                     }
                 }
-                
             }
             
             return finalData as NSDictionary
-            
         }
         
-        let urlString = Constant.URLCurrent.rawValue + "&mode=json" + Constant.appID.rawValue
+        let urlString = Constant.URLCurrent.rawValue + Constant.appID.rawValue
         let url = URL(string: urlString)!
         let request = URLRequest(url: url)
         
@@ -65,15 +64,15 @@ class WeatherLoader{
             if let data = data,
                 let json = try? JSONSerialization.jsonObject(with: data, options: .allowFragments),
                 let jsonDict = json as? NSDictionary{
-                print("\n\njsonDict:")
-                print(jsonDict)
-                var weather: [Weather] = []
+//                print("\n\njsonDict:")
+//                print(jsonDict)
                 
                 if let w = Weather(data: getFinalData(from: jsonDict)){
-                    weather.append(w)
+                    self.weatherForecast.append(w)
                 }
-                print(weather.count)
-                self.delegate?.loaded(weather)
+                DispatchQueue.main.async {
+                    self.delegate?.loaded(self.weatherForecast)
+                }
             }
         }
         task.resume()

@@ -18,15 +18,12 @@ let weatherConditions: [(en: String, ru: String)] = [
     (en: "Clouds", ru: "Облачно")]
 
 struct MyDate{
-    var day = 0
-    var month = 0
-    var year = 0_000
-    
-    var date = ""
+    var day = 00
+    var month = 00
+    var year = 0000
     
     init(from dt: Date){
         var dateString = ""
-        
         var index = 0
         for c in dt.description{
             if c != "-" && c != " " {
@@ -47,27 +44,41 @@ struct MyDate{
                 }
             }
         }
+    }
+    
+    func getDate() -> String{
+        var result = ""
+        let currentDate = MyDate(from: Date(timeIntervalSinceNow: 0))
         
-        if self.day >= 10{
-            self.date += "\(self.day)/"
+        
+        let dayDistance = self.day - currentDate.day
+        let monthDistance = self.month - currentDate.month
+        
+        if dayDistance == 0 && monthDistance == 0{
+            result = "Сегодня"
+        } else if dayDistance == 1 {
+            result = "Завтра"
         } else {
-            self.date += "0\(self.day)/"
+            if self.day >= 10{
+                result += "\(self.day)/"
+            } else {
+                result += "0\(self.day)/"
+            }
+            
+            if self.month >= 10{
+                result += "\(self.month)"
+            } else {
+                result += "0\(self.month)"
+            }
         }
         
-        if self.month >= 10{
-            self.date += "\(self.month)"
-        } else {
-            self.date += "0\(self.month)"
-        }
-        print (year, month, day, date)
+        return result
     }
     
 }
 
 class Weather{
     
-   
-
     let date: MyDate
     let temp: Int
     let main: String

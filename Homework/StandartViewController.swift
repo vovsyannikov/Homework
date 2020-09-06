@@ -43,7 +43,7 @@ extension StandartViewController: UITableViewDataSource{
         let day = weatherForecast[indexPath.row]
         cell.tempLabel.text = String(day.temp) + " Cº"
         cell.descriptionLabel.text = day.main
-        cell.dateLabel.text = day.date.date
+        cell.dateLabel.text = day.date.getDate()
         
         switch cell.descriptionLabel.text{
             

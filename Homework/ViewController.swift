@@ -11,11 +11,12 @@ import UIKit
 enum Constant: String{
     case top
     case trailing
+    case cornerRadius
 }
 
 class ViewController: UIViewController {
     
-    var currentAnim = 0
+    var currentAnim = 2
     let names = [
         "Фон",
         "Перемещение",
@@ -32,6 +33,7 @@ class ViewController: UIViewController {
     
     var defaultColor = UIColor()
     var defaultRect = CGRect()
+    var isCircle = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -61,9 +63,35 @@ class ViewController: UIViewController {
                 self.view.layoutIfNeeded()
             }
         }
+        func cornerRaduisChange(){
+            func toCircle(){
+                let animationType = (name: Constant.cornerRadius.rawValue, value: self.testSubjectView.frame.size.width/2)
+                let animation = CABasicAnimation(keyPath: animationType.name)
+                animation.fromValue = NSNumber(value: 0)
+                animation.toValue = NSNumber(value: Float(animationType.value))
+                animation.duration = 2.0
+                testSubjectView.layer.add(animation, forKey: animationType.name)
+                testSubjectView.layer.cornerRadius = animationType.value
+            }
+            func fromCircle(){
+                let animationType = (name: Constant.cornerRadius.rawValue, value: self.testSubjectView.frame.size.width/2)
+                let animation = CABasicAnimation(keyPath: animationType.name)
+                animation.fromValue = NSNumber(value: Float(animationType.value))
+                animation.toValue = NSNumber(value: 0)
+                animation.duration = 2.0
+                testSubjectView.layer.add(animation, forKey: animationType.name)
+                testSubjectView.layer.cornerRadius = 0
+            }
+            
+            switch isCircle{
+            case false: toCircle()
+            case true: fromCircle()
+            }
+            isCircle.toggle()
+           
+        }
         
-        
-        moveToUpperRightCorner()
+        cornerRaduisChange()
     }
 
     @IBAction func nextAnimation(_ sender: Any) {

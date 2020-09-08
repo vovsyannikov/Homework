@@ -8,6 +8,11 @@
 
 import UIKit
 
+enum Constant: String{
+    case top
+    case trailing
+}
+
 class ViewController: UIViewController {
     
     var currentAnim = 0
@@ -25,9 +30,15 @@ class ViewController: UIViewController {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var numberLabel: UILabel!
     
+    var defaultColor = UIColor()
+    var defaultRect = CGRect()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         testSubjectView.backgroundColor = UIColor.red
+        defaultColor = testSubjectView.backgroundColor!
+        defaultRect = CGRect(x: view.bounds.width/2 - self.testSubjectView.frame.width/2, y: view.bounds.height/2 - self.testSubjectView.frame.height/2, width: self.testSubjectView.frame.width, height: self.testSubjectView.frame.height)
+        
         
         nameLabel.text = names[currentAnim]
         numberLabel.text = "\(currentAnim + 1)"
@@ -41,8 +52,18 @@ class ViewController: UIViewController {
                 self.testSubjectView.backgroundColor = UIColor.red
             }
         }
+        func moveToUpperRightCorner(){
+            UIView.animateKeyframes(withDuration: 2, delay: 0, options: .autoreverse, animations: {
+                self.testSubjectView.frame = CGRect(x: self.view.bounds.width - self.defaultRect.width, y: 0, width: self.defaultRect.width, height: self.defaultRect.height)
+                self.view.layoutIfNeeded()
+            }) { isFinished in
+                self.testSubjectView.frame = self.defaultRect
+                self.view.layoutIfNeeded()
+            }
+        }
         
-        backgroundColorChange()
+        
+        moveToUpperRightCorner()
     }
 
     @IBAction func nextAnimation(_ sender: Any) {

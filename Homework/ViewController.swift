@@ -16,7 +16,7 @@ enum Constant: String{
 
 class ViewController: UIViewController {
     
-    var currentAnim = 2
+    var currentAnim = 3
     let names = [
         "Фон",
         "Перемещение",
@@ -83,15 +83,33 @@ class ViewController: UIViewController {
                 testSubjectView.layer.cornerRadius = 0
             }
             
-            switch isCircle{
-            case false: toCircle()
-            case true: fromCircle()
+            
+            // Для ручной работы
+//            switch isCircle{
+//            case false: toCircle()
+//            case true: fromCircle()
+//            }
+//            isCircle.toggle()
+            
+            
+//             Для автоматической работы
+            toCircle()
+            DispatchQueue.main.asyncAfter(deadline: .now() + 2.15) {
+                fromCircle()
             }
-            isCircle.toggle()
-           
+            
+            
+        }
+        func rotate(){
+            UIView.animate(withDuration: 2, delay: 0, options: .autoreverse, animations: {
+                self.testSubjectView.transform = CGAffineTransform(rotationAngle: CGFloat.pi)
+            }) { isFinished in
+                self.testSubjectView.transform = CGAffineTransform(rotationAngle: CGFloat.pi)
+            }
         }
         
-        cornerRaduisChange()
+        
+        rotate()
     }
 
     @IBAction func nextAnimation(_ sender: Any) {

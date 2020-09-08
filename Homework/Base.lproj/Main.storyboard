@@ -93,7 +93,9 @@
                     </view>
                     <connections>
                         <outlet property="nameLabel" destination="M80-q2-VbI" id="Csr-mA-uf8"/>
+                        <outlet property="nextAnimButton" destination="U5k-Uq-XKF" id="z1A-rH-R0F"/>
                         <outlet property="numberLabel" destination="0RO-sP-Bo6" id="chr-xA-Vr9"/>
+                        <outlet property="prevAnimButton" destination="ldN-z5-b1F" id="Ya8-1g-j7a"/>
                         <outlet property="testSubjectView" destination="aaq-7O-had" id="ni5-Ux-RCG"/>
                     </connections>
                 </viewController>

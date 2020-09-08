@@ -9,12 +9,17 @@
 import UIKit
 import Alamofire
 
+/* Краткие пояснения к коду
+ 1. Получение погоды на неделю является платной услугой на сайте Open Weather. Либо я не до конца разобрался. Потому существует два ключа  API в перечислении Constant: один мой, а другой рабочий 😂
+ 2. Вложенный метод getFinalData обрабатывает данные из jsonDict в необходимый формат. В связи с разными нотациями результатов данных для погоды на день и на неделю, в методах *current* и *daily* разные алгоритмы обработки
+ */
+
 enum Constant: String{
     case URLCurrent = "https://openweathermap.org/data/2.5/weather?q=Moscow,ru"
     case URL7Days = "https://openweathermap.org/data/2.5/forecast/daily?id=524901&cnt=7"
     
-    case APIKey = "&appid=d16591c5f4f24840a17a76f78f3d0721"
-    case appID = "&appid=439d4b804bc8187953eb36d2a8c26a02"
+    case MyAPIKey = "&appid=d16591c5f4f24840a17a76f78f3d0721"
+    case OpenAPIKey = "&appid=439d4b804bc8187953eb36d2a8c26a02"
 }
 
 protocol WeatherLoaderDelegate {
@@ -55,7 +60,7 @@ class WeatherLoader{
             return finalData as NSDictionary
         }
         
-        let urlString = Constant.URLCurrent.rawValue + Constant.appID.rawValue
+        let urlString = Constant.URLCurrent.rawValue + Constant.OpenAPIKey.rawValue
         let url = URL(string: urlString)!
         let request = URLRequest(url: url)
         
@@ -107,7 +112,7 @@ class WeatherLoader{
             return finalData as NSDictionary
         }
         
-        let urlString = Constant.URL7Days.rawValue + Constant.appID.rawValue
+        let urlString = Constant.URL7Days.rawValue + Constant.OpenAPIKey.rawValue
         let url = URL(string: urlString)!
         let request = URLRequest(url: url)
         
@@ -120,7 +125,7 @@ class WeatherLoader{
 //                    print(jsonDict["list"])
                 
                 for dict in jsonDict["list"] as! NSArray {
-                    if self.weatherForecast.count == 8{ break }
+                    if self.weatherForecast.count == 7{ break }
                     if let w = Weather(data: getFinalData(from: dict as! NSDictionary)){
                         self.weatherForecast.append(w)
                     }
@@ -150,10 +155,10 @@ class WeatherLoader{
                         }
                     }
                 }
-                if k as! String == "temp"{
+                if k as! String == "main"{
                     for (key, el) in data as! NSDictionary{
-                        if key as! String == "day"{
-                            finalData["temp"] = el
+                        if key as! String == "temp"{
+                            finalData[key as! String] = el
                         }
                     }
                 }
@@ -162,7 +167,7 @@ class WeatherLoader{
             return finalData as NSDictionary
         }
         
-        let urlString = Constant.URLCurrent.rawValue + Constant.appID.rawValue
+        let urlString = Constant.URLCurrent.rawValue + Constant.OpenAPIKey.rawValue
         Alamofire.request(urlString).responseJSON { response in
             if let objects = response.result.value,
                 let jsonDict = objects as? NSDictionary{
@@ -208,7 +213,7 @@ class WeatherLoader{
             return finalData as NSDictionary
         }
         
-        let urlString = Constant.URL7Days.rawValue + Constant.appID.rawValue
+        let urlString = Constant.URL7Days.rawValue + Constant.OpenAPIKey.rawValue
         Alamofire.request(urlString).responseJSON{ response in
             if let objects = response.result.value,
                 let jsonDict = objects as? NSDictionary{
@@ -216,7 +221,7 @@ class WeatherLoader{
                 //                    print(jsonDict["list"])
                 
                 for dict in jsonDict["list"] as! NSArray {
-                    if self.weatherForecast.count == 8{ break }
+                    if self.weatherForecast.count == 7 { break }
                     if let w = Weather(data: getFinalData(from: dict as! NSDictionary)){
                         self.weatherForecast.append(w)
                     }

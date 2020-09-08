@@ -8,6 +8,7 @@
 
 import UIKit
 
+// Переводчик
 let weatherConditions: [(en: String, ru: String)] = [
     (en: "Thunderstorm", ru: "Гроза"),
     (en: "Drizzle", ru: "Морось"),
@@ -17,6 +18,7 @@ let weatherConditions: [(en: String, ru: String)] = [
     (en: "Clear", ru: "Ясно"),
     (en: "Clouds", ru: "Облачно")]
 
+// Структура данных для собственного типа данных Дата
 struct MyDate{
     var day = 00
     var month = 00
@@ -46,6 +48,7 @@ struct MyDate{
         }
     }
     
+    // Получение презентации даты. Для ближайщих двух дней: "Сегодня" и "Завтра", для отсальных дд/мм
     func getDate() -> String{
         var result = ""
         let currentDate = MyDate(from: Date(timeIntervalSinceNow: 10800))
@@ -90,6 +93,7 @@ class Weather{
                 return nil
         }
         
+        // Создание константы с встроенным типом Date. Смезение в 10800 для установки часового пояса Москвы(+3 GMT)
         let simpleDate = Date(timeIntervalSince1970: dt + 10800)
         
         self.date = MyDate(from: simpleDate)

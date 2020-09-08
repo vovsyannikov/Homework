@@ -19,8 +19,11 @@ class StandartViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         wLoader.delegate = self
+        // Загрузка погоды на сегодня
 //        wLoader.loadCurrentWeatherStandart()
-        wLoader.loadDialyWeatherAlamofire()
+        
+        // Загрузка погоды на неделю
+        wLoader.loadDialyWeatherStandart()
     }
     
 
@@ -41,11 +44,15 @@ extension StandartViewController: UITableViewDataSource{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Current") as! WeatherTableViewCell
         
+    
         let day = weatherForecast[indexPath.row]
+        // Вывод на экран основных текстовых данных
         cell.tempLabel.text = String(day.temp) + " Cº"
         cell.descriptionLabel.text = day.main
         cell.dateLabel.text = day.date.getDate()
         
+        
+        // На основании присвоенного текстового описания погоды создается картинка
         switch cell.descriptionLabel.text{
             
         case "Thunderstorm":
@@ -66,6 +73,7 @@ extension StandartViewController: UITableViewDataSource{
         default: break
         }
         
+        // Для каждого английского обозначения идет перевод
         for el in weatherConditions {
             if cell.descriptionLabel.text == el.en {
                 cell.descriptionLabel.text = el.ru

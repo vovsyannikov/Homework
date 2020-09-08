@@ -16,7 +16,7 @@ enum Constant: String{
 
 class ViewController: UIViewController {
     
-    var currentAnim = 3
+    var currentAnim = 4
     let names = [
         "Фон",
         "Перемещение",
@@ -104,12 +104,27 @@ class ViewController: UIViewController {
             UIView.animate(withDuration: 2, delay: 0, options: .autoreverse, animations: {
                 self.testSubjectView.transform = CGAffineTransform(rotationAngle: CGFloat.pi)
             }) { isFinished in
-                self.testSubjectView.transform = CGAffineTransform(rotationAngle: CGFloat.pi)
+                self.testSubjectView.transform =  CGAffineTransform(rotationAngle: CGFloat(0))
+            }
+        }
+        func changeAlpha(){
+            self.testSubjectView.alpha = 1
+            UIView.animate(withDuration: 2, delay: 0, options: .autoreverse, animations: {
+                self.testSubjectView.alpha = 0
+            }) { isFinished in
+                self.testSubjectView.alpha = 1
+            }
+        }
+        func scale(){
+            UIView.animate(withDuration: 2, delay: 0, options: .autoreverse, animations: {
+                self.testSubjectView.transform = CGAffineTransform(scaleX: 2, y: 2)
+            }) { isFinished in
+                self.testSubjectView.transform = CGAffineTransform(scaleX: 1, y: 1)
             }
         }
         
         
-        rotate()
+        scale()
     }
 
     @IBAction func nextAnimation(_ sender: Any) {

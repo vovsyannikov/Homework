@@ -8,7 +8,9 @@
 
 import UIKit
 
-struct Anim{
+class ViewController: UIViewController {
+    
+    var currentAnim = 0
     let names = [
         "Фон",
         "Перемещение",
@@ -18,11 +20,6 @@ struct Anim{
         "Увеличение",
         "∞ поворот"
     ]
-}
-
-class ViewController: UIViewController {
-    
-    var currentAnim = 0
 
     @IBOutlet weak var testSubjectView: UIView!
     @IBOutlet weak var nameLabel: UILabel!
@@ -30,14 +27,26 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        var anim = Anim()
+        testSubjectView.backgroundColor = UIColor.red
         
-        nameLabel.text = anim.names[currentAnim]
+        nameLabel.text = names[currentAnim]
         numberLabel.text = "\(currentAnim + 1)"
+    }
+    
+    func playAnim(){
+        func backgroundColorChange(){
+            UIView.animate(withDuration: 2, delay: 0, options: .autoreverse, animations: {
+                self.testSubjectView.backgroundColor = UIColor.yellow
+            }) { isFinished in
+                self.testSubjectView.backgroundColor = UIColor.red
+            }
+        }
+        
+        backgroundColorChange()
     }
 
     @IBAction func nextAnimation(_ sender: Any) {
-        if currentAnim == Anim().names.count - 1{
+        if currentAnim == names.count - 1{
             currentAnim = 0
         } else {
             currentAnim += 1
@@ -46,13 +55,14 @@ class ViewController: UIViewController {
     }
     @IBAction func previousAnimation(_ sender: Any) {
         if currentAnim == 0{
-            currentAnim = Anim().names.count - 1
+            currentAnim = names.count - 1
         } else {
             currentAnim -= 1
         }
         viewDidLoad()
     }
     @IBAction func playAnimation(_ sender: Any) {
+        playAnim()
     }
     
 }

@@ -20,7 +20,7 @@ class StandartViewController: UIViewController {
         super.viewDidLoad()
         wLoader.delegate = self
 //        wLoader.loadCurrentWeatherStandart()
-        wLoader.loadDialyWeatherStandart()
+        wLoader.loadDialyWeatherAlamofire()
     }
     
 

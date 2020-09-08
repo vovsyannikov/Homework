@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Alamofire
 
 enum Constant: String{
     case URLCurrent = "https://openweathermap.org/data/2.5/weather?q=Moscow,ru"
@@ -130,5 +131,100 @@ class WeatherLoader{
             }
         }
         task.resume()
+    }
+    
+    func loadCurrentWeatherAlamofire(){
+        func getFinalData(from jsonDict: NSDictionary) -> NSDictionary{
+            var finalData = Dictionary<String, Any>()
+            
+            for (k, data) in jsonDict{
+                if k as! String == "dt"{
+                    finalData[k as! String] = data
+                }
+                if k as! String == "weather"{
+                    for el in data as! NSArray{
+                        for (key, dict) in  el as! NSDictionary{
+                            if key as! String == "main"{
+                                finalData["description"] = dict
+                            }
+                        }
+                    }
+                }
+                if k as! String == "temp"{
+                    for (key, el) in data as! NSDictionary{
+                        if key as! String == "day"{
+                            finalData["temp"] = el
+                        }
+                    }
+                }
+            }
+            
+            return finalData as NSDictionary
+        }
+        
+        let urlString = Constant.URLCurrent.rawValue + Constant.appID.rawValue
+        Alamofire.request(urlString).responseJSON { response in
+            if let objects = response.result.value,
+                let jsonDict = objects as? NSDictionary{
+                //                print("\n\njsonDict:")
+                //                print(jsonDict)
+                
+                if let w = Weather(data: getFinalData(from: jsonDict)){
+                    self.weatherForecast.append(w)
+                }
+                DispatchQueue.main.async {
+                    self.delegate?.loaded(self.weatherForecast)
+                }
+            }
+        }
+    }
+    
+    func loadDialyWeatherAlamofire(){
+        func getFinalData(from jsonDict: NSDictionary) -> NSDictionary{
+            var finalData = Dictionary<String, Any>()
+            
+            for (k, data) in jsonDict{
+                if k as! String == "dt"{
+                    finalData[k as! String] = data
+                }
+                if k as! String == "weather"{
+                    for el in data as! NSArray{
+                        for (key, dict) in  el as! NSDictionary{
+                            if key as! String == "main"{
+                                finalData["description"] = dict
+                            }
+                        }
+                    }
+                }
+                if k as! String == "temp"{
+                    for (key, el) in data as! NSDictionary{
+                        if key as! String == "day"{
+                            finalData["temp"] = el
+                        }
+                    }
+                }
+            }
+            
+            return finalData as NSDictionary
+        }
+        
+        let urlString = Constant.URL7Days.rawValue + Constant.appID.rawValue
+        Alamofire.request(urlString).responseJSON{ response in
+            if let objects = response.result.value,
+                let jsonDict = objects as? NSDictionary{
+                //                    print("\n\njsonDict:")
+                //                    print(jsonDict["list"])
+                
+                for dict in jsonDict["list"] as! NSArray {
+                    if self.weatherForecast.count == 8{ break }
+                    if let w = Weather(data: getFinalData(from: dict as! NSDictionary)){
+                        self.weatherForecast.append(w)
+                    }
+                }
+                DispatchQueue.main.async {
+                    self.delegate?.loaded(self.weatherForecast)
+                }
+            }
+        }
     }
 }

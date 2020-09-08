@@ -122,9 +122,13 @@ class ViewController: UIViewController {
                 self.testSubjectView.transform = CGAffineTransform(scaleX: 1, y: 1)
             }
         }
+        func infiniteRotation(){
+            UIView.animate(withDuration: 2, delay: 0, options: [.curveLinear, .repeat], animations: {
+                self.testSubjectView.transform = CGAffineTransform(rotationAngle: CGFloat.pi)
+            }, completion: nil)
+        }
         
-        
-        scale()
+        infiniteRotation()
     }
 
     @IBAction func nextAnimation(_ sender: Any) {

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3C050F092508109E002D3E3B /* TestAlamofire.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C050F082508109E002D3E3B /* TestAlamofire.swift */; };
 		3C8D74B224F2E87C00819F8B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C8D74B124F2E87C00819F8B /* AppDelegate.swift */; };
 		3C8D74B424F2E87C00819F8B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C8D74B324F2E87C00819F8B /* SceneDelegate.swift */; };
 		3C8D74B624F2E87C00819F8B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C8D74B524F2E87C00819F8B /* ViewController.swift */; };
@@ -15,6 +16,8 @@
 		3C8D74BE24F2E87F00819F8B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3C8D74BC24F2E87F00819F8B /* LaunchScreen.storyboard */; };
 		3C8D74C924F2E87F00819F8B /* HomeworkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C8D74C824F2E87F00819F8B /* HomeworkTests.swift */; };
 		3C8D74D424F2E87F00819F8B /* HomeworkUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C8D74D324F2E87F00819F8B /* HomeworkUITests.swift */; };
+		3CA4553D25080EEE00A037BD /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3CA4553C25080EEE00A037BD /* Alamofire.framework */; };
+		3CA4553E25080EEE00A037BD /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3CA4553C25080EEE00A037BD /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,7 +37,23 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		3CA4553F25080EEE00A037BD /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				3CA4553E25080EEE00A037BD /* Alamofire.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		3C050F0725080FF1002D3E3B /* Alamofire.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = Alamofire.framework.dSYM; path = Carthage/Build/iOS/Alamofire.framework.dSYM; sourceTree = "<group>"; };
+		3C050F082508109E002D3E3B /* TestAlamofire.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestAlamofire.swift; sourceTree = "<group>"; };
 		3C8D74AE24F2E87C00819F8B /* Homework.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Homework.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3C8D74B124F2E87C00819F8B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3C8D74B324F2E87C00819F8B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -49,6 +68,7 @@
 		3C8D74CF24F2E87F00819F8B /* HomeworkUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HomeworkUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3C8D74D324F2E87F00819F8B /* HomeworkUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeworkUITests.swift; sourceTree = "<group>"; };
 		3C8D74D524F2E87F00819F8B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3CA4553C25080EEE00A037BD /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +76,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3CA4553D25080EEE00A037BD /* Alamofire.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -83,6 +104,7 @@
 				3C8D74C724F2E87F00819F8B /* HomeworkTests */,
 				3C8D74D224F2E87F00819F8B /* HomeworkUITests */,
 				3C8D74AF24F2E87C00819F8B /* Products */,
+				3CA4553A25080E7A00A037BD /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -102,6 +124,7 @@
 				3C8D74B124F2E87C00819F8B /* AppDelegate.swift */,
 				3C8D74B324F2E87C00819F8B /* SceneDelegate.swift */,
 				3C8D74B524F2E87C00819F8B /* ViewController.swift */,
+				3C050F082508109E002D3E3B /* TestAlamofire.swift */,
 				3C8D74B724F2E87C00819F8B /* Main.storyboard */,
 				3C8D74BA24F2E87F00819F8B /* Assets.xcassets */,
 				3C8D74BC24F2E87F00819F8B /* LaunchScreen.storyboard */,
@@ -128,6 +151,15 @@
 			path = HomeworkUITests;
 			sourceTree = "<group>";
 		};
+		3CA4553A25080E7A00A037BD /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3C050F0725080FF1002D3E3B /* Alamofire.framework.dSYM */,
+				3CA4553C25080EEE00A037BD /* Alamofire.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -139,6 +171,7 @@
 				3C8D74AB24F2E87C00819F8B /* Frameworks */,
 				3C8D74AC24F2E87C00819F8B /* Resources */,
 				3C8D752924FAF68700819F8B /* ShellScript */,
+				3CA4553F25080EEE00A037BD /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -264,6 +297,7 @@
 			inputFileListPaths = (
 			);
 			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/Alamofire.framework",
 			);
 			outputFileListPaths = (
 			);
@@ -271,7 +305,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n\nTAGS=\"TODO:|FIXME:\"\nfind \"${SRCROOT}\" \\( -name \"*.h\" -or -name \"*.m\" -or -name \"*.swift\" \\) -print0 | xargs -0 egrep --with-filename --line-number --only-matching \"($TAGS).*\\$\" | perl -p -e \"s/($TAGS)/ warning: \\$1/\"\n";
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n\nTAGS=\"TODO:|FIXME:\"\nfind \"${SRCROOT}\" \\( -name \"*.h\" -or -name \"*.m\" -or -name \"*.swift\" \\) -print0 | xargs -0 egrep --with-filename --line-number --only-matching \"($TAGS).*\\$\" | perl -p -e \"s/($TAGS)/ warning: \\$1/\"\n\n\n/usr/local/bin/carthage copy-frameworks\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -282,6 +316,7 @@
 			files = (
 				3C8D74B624F2E87C00819F8B /* ViewController.swift in Sources */,
 				3C8D74B224F2E87C00819F8B /* AppDelegate.swift in Sources */,
+				3C050F092508109E002D3E3B /* TestAlamofire.swift in Sources */,
 				3C8D74B424F2E87C00819F8B /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -456,6 +491,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = Homework/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -473,6 +512,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = Homework/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

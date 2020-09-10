@@ -9,7 +9,7 @@
 import UIKit
 import RealmSwift
 
-class Todo: Object{
+class Todos: Object{
     @objc dynamic var name = ""
 }
 
@@ -29,15 +29,11 @@ class TodoListViewController: UIViewController {
         }
     }
     
-    @IBAction func removeCell(_ sender: Any) {
-        print(sender)
-    }
-    
 }
 
 extension TodoListViewController: AddTodoDelegate{
     func addTodo(_ text: String) {
-        let todo = Todo()
+        let todo = Todos()
         todo.name = text
         
         try! realm.write{
@@ -51,13 +47,13 @@ extension TodoListViewController: AddTodoDelegate{
 
 extension TodoListViewController: UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return realm.objects(Todo.self).count
+        return realm.objects(Todos.self).count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Todo") as! TodoListTableViewCell
         
-        let todos = realm.objects(Todo.self)
+        let todos = realm.objects(Todos.self)
         
         cell.positionLabel.text = "\(indexPath.row + 1)"
         cell.todoLabel.text = todos[indexPath.row].name
@@ -68,8 +64,8 @@ extension TodoListViewController: UITableViewDataSource{
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath){
         if editingStyle == .delete{
             
-            var objectToDelete = Todo()
-            for (index, obj) in realm.objects(Todo.self).enumerated(){
+            var objectToDelete = Todos()
+            for (index, obj) in realm.objects(Todos.self).enumerated(){
                 if index == indexPath.row{
                     objectToDelete = obj
                 }

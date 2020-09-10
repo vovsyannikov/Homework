@@ -11,6 +11,8 @@
 		3C050F0D250A9D0C002D3E3B /* TodoListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C050F0C250A9D0C002D3E3B /* TodoListViewController.swift */; };
 		3C050F0F250AA573002D3E3B /* TodoListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C050F0E250AA573002D3E3B /* TodoListTableViewCell.swift */; };
 		3C050F11250AAA48002D3E3B /* AddTodoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C050F10250AAA48002D3E3B /* AddTodoViewController.swift */; };
+		3C050F13250AB758002D3E3B /* CoreDataTodoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C050F12250AB758002D3E3B /* CoreDataTodoViewController.swift */; };
+		3C050F16250AB7A3002D3E3B /* Todos.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3C050F14250AB7A3002D3E3B /* Todos.xcdatamodeld */; };
 		3C8D74B224F2E87C00819F8B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C8D74B124F2E87C00819F8B /* AppDelegate.swift */; };
 		3C8D74B424F2E87C00819F8B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C8D74B324F2E87C00819F8B /* SceneDelegate.swift */; };
 		3C8D74B924F2E87C00819F8B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3C8D74B724F2E87C00819F8B /* Main.storyboard */; };
@@ -45,6 +47,8 @@
 		3C050F0C250A9D0C002D3E3B /* TodoListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoListViewController.swift; sourceTree = "<group>"; };
 		3C050F0E250AA573002D3E3B /* TodoListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoListTableViewCell.swift; sourceTree = "<group>"; };
 		3C050F10250AAA48002D3E3B /* AddTodoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTodoViewController.swift; sourceTree = "<group>"; };
+		3C050F12250AB758002D3E3B /* CoreDataTodoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataTodoViewController.swift; sourceTree = "<group>"; };
+		3C050F15250AB7A3002D3E3B /* Todos.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Todos.xcdatamodel; sourceTree = "<group>"; };
 		3C8D74AE24F2E87C00819F8B /* Homework.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Homework.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3C8D74B124F2E87C00819F8B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3C8D74B324F2E87C00819F8B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -124,12 +128,14 @@
 				3C050F10250AAA48002D3E3B /* AddTodoViewController.swift */,
 				3C050F0A250A92A5002D3E3B /* UserDefaultsViewController.swift */,
 				3C050F0C250A9D0C002D3E3B /* TodoListViewController.swift */,
+				3C050F12250AB758002D3E3B /* CoreDataTodoViewController.swift */,
 				3C8D74B124F2E87C00819F8B /* AppDelegate.swift */,
 				3C8D74B324F2E87C00819F8B /* SceneDelegate.swift */,
 				3C8D74B724F2E87C00819F8B /* Main.storyboard */,
 				3C8D74BA24F2E87F00819F8B /* Assets.xcassets */,
 				3C8D74BC24F2E87F00819F8B /* LaunchScreen.storyboard */,
 				3C8D74BF24F2E87F00819F8B /* Info.plist */,
+				3C050F14250AB7A3002D3E3B /* Todos.xcdatamodeld */,
 			);
 			path = Homework;
 			sourceTree = "<group>";
@@ -356,6 +362,8 @@
 			files = (
 				3C050F0D250A9D0C002D3E3B /* TodoListViewController.swift in Sources */,
 				3C050F0B250A92A5002D3E3B /* UserDefaultsViewController.swift in Sources */,
+				3C050F13250AB758002D3E3B /* CoreDataTodoViewController.swift in Sources */,
+				3C050F16250AB7A3002D3E3B /* Todos.xcdatamodeld in Sources */,
 				3C8D74B224F2E87C00819F8B /* AppDelegate.swift in Sources */,
 				3C050F0F250AA573002D3E3B /* TodoListTableViewCell.swift in Sources */,
 				3C050F11250AAA48002D3E3B /* AddTodoViewController.swift in Sources */,
@@ -684,6 +692,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		3C050F14250AB7A3002D3E3B /* Todos.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				3C050F15250AB7A3002D3E3B /* Todos.xcdatamodel */,
+			);
+			currentVersion = 3C050F15250AB7A3002D3E3B /* Todos.xcdatamodel */;
+			path = Todos.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 3C8D74A624F2E87C00819F8B /* Project object */;
 }

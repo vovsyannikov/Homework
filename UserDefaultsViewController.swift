@@ -34,7 +34,9 @@ class UserDefaultsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
     
-        mainLabel.text = "Приветствую \(Person.shared.firstName!) \(Person.shared.secondName!)"
+        if let firstName = Person.shared.firstName, let secondName = Person.shared.secondName{
+            mainLabel.text = "Приветствую \(firstName) \(secondName)"
+        }
         
         changeNameButton.layer.borderWidth = 0.75
         changeNameButton.layer.borderColor = UIColor.blue.cgColor

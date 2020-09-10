@@ -33,7 +33,9 @@ class StandartViewController: UIViewController {
 extension StandartViewController: WeatherLoaderDelegate{
     func loaded(_ weather: [Weather]) {
         self.weatherForecast = weather
-        weather[0].storeDays(for: weatherForecast)
+        for day in weatherForecast{
+            day.storeDays(for: day)
+        }
         weatherTableView.reloadData()
     }
 }

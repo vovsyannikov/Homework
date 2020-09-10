@@ -126,19 +126,28 @@ class Weather{
     }
    
     
-    func storeDays(for weatherForecast: [Weather]){
-        for _ in weatherForecast{
-            self.days.append(Day())
-        }
-        for (index,w) in weatherForecast.enumerated(){
-            self.days[index].update(with: w)
-            print("\(days[index].date) температура составит \(days[index].temp) Cº: \(days[index].main)")
-        }
+    func storeDays(for dayForecast: Weather){
+        self.days.append(Day())
+        self.days.last!.update(with: dayForecast)
         
-//        try! realm.write {
-//            for d in days{
-//                realm.add(d)
-//            }
-//        }
+        // FIXME: Не работает из-за разницы потоков: realm accessed from incorrect thread.
+//        writeToRealm(day: self.days.last!)
+        
+//        print("\(days.last!.date) температура составит \(days.last!.temp) Cº: \(days.last!.main)")
+    }
+    
+    func writeToRealm(day: Day){
+        let dayThread = ThreadSafeReference(to: day)
+        DispatchQueue(label: "background").async {
+            autoreleasepool {
+                guard let d = self.realm.resolve(dayThread) else {
+                    return
+                }
+                try! self.realm.write {
+                    self.realm.add(d, update: .modified)
+                }
+            }
+            
+        }
     }
 }

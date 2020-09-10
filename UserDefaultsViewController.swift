@@ -9,13 +9,21 @@
 import UIKit
 
 class Person{
-    var firstName = ""
-    var secondName = ""
+    static let shared = Person()
+    
+    private let kFirstNameKey = "Person.kFirstNameKey"
+    private let kSecondNameKey = "Person.kSecondNameKey"
+    var firstName: String? {
+        set { UserDefaults.standard.set(newValue, forKey: kFirstNameKey)}
+        get { return UserDefaults.standard.string(forKey: kFirstNameKey)}
+    }
+    var secondName: String? {
+        set { UserDefaults.standard.set(newValue, forKey: kSecondNameKey)}
+        get { return UserDefaults.standard.string(forKey: kSecondNameKey)}
+    }
 }
 
 class UserDefaultsViewController: UIViewController {
-    
-    let person = Person()
 
     @IBOutlet weak var mainLabel: UILabel!
     @IBOutlet weak var firstNameTextField: UITextField!
@@ -24,8 +32,8 @@ class UserDefaultsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        mainLabel.text = "Приветствую"
-        
+    
+        mainLabel.text = "Приветствую \(Person.shared.firstName!) \(Person.shared.secondName!)"
         
         changeNameButton.layer.borderWidth = 0.75
         changeNameButton.layer.borderColor = UIColor.blue.cgColor
@@ -35,10 +43,10 @@ class UserDefaultsViewController: UIViewController {
         
     }
     @IBAction func changeMainLabel(_ sender: Any) {
-        self.person.firstName = firstNameTextField.text!
-        self.person.secondName = secondNameTextField.text!
+        Person.shared.firstName = firstNameTextField.text!
+        Person.shared.secondName = secondNameTextField.text!
         
-        mainLabel.text = "Приветствую \(person.firstName) \(person.secondName)"
+        mainLabel.text = "Приветствую \(Person.shared.firstName!) \(Person.shared.secondName!)"
     }
     
 }

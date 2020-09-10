@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.3" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.3" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="SHE-FB-Lpd">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
@@ -7,7 +7,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Standart View Controller-->
+        <!--Встроенные методы-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="StandartViewController" customModule="Homework" customModuleProvider="target" sceneMemberID="viewController">
@@ -16,10 +16,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SkyBackground" translatesAutoresizingMaskIntoConstraints="NO" id="xfK-RI-D96">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="962"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="913"/>
                             </imageView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="lt7-ry-xNI">
-                                <rect key="frame" x="0.0" y="137" width="414" height="725"/>
+                                <rect key="frame" x="0.0" y="137" width="414" height="676"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Current" rowHeight="150" id="0mc-32-aEX" customClass="WeatherTableViewCell" customModule="Homework" customModuleProvider="target">
@@ -111,15 +111,16 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Встроенные методы" image="s.circle" catalog="system" id="oD4-lg-qIc"/>
                     <connections>
                         <outlet property="weatherTableView" destination="lt7-ry-xNI" id="bnQ-tj-Oae"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="131.8840579710145" y="100.44642857142857"/>
+            <point key="canvasLocation" x="1042.0289855072465" y="100.44642857142857"/>
         </scene>
-        <!--Alamofire View Controller-->
+        <!--Alamofire-->
         <scene sceneID="4Fy-ww-InH">
             <objects>
                 <viewController id="SDx-fX-Lzu" customClass="AlamofireViewController" customModule="Homework" customModuleProvider="target" sceneMemberID="viewController">
@@ -128,10 +129,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SkyBackground" translatesAutoresizingMaskIntoConstraints="NO" id="5W2-rp-XdD">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="962"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="913"/>
                             </imageView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="er6-ro-7lO">
-                                <rect key="frame" x="0.0" y="137" width="414" height="725"/>
+                                <rect key="frame" x="0.0" y="137" width="414" height="676"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Current" rowHeight="150" id="8C6-sv-6Ws" customClass="WeatherTableViewCell" customModule="Homework" customModuleProvider="target">
@@ -223,16 +224,37 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="5xy-eP-6jt"/>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Alamofire" image="a.circle" catalog="system" id="kJk-U7-5u8"/>
                     <connections>
                         <outlet property="weatherTableView" destination="er6-ro-7lO" id="M70-IA-Dnj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rVx-my-3Ny" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="132" y="794"/>
+            <point key="canvasLocation" x="1042" y="-677"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="uj8-EY-zNf">
+            <objects>
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="SHE-FB-Lpd" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="IH4-bd-yU0">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="W1F-sT-90e"/>
+                        <segue destination="SDx-fX-Lzu" kind="relationship" relationship="viewControllers" id="69u-Hm-s9e"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jJs-KL-AsO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="131.8840579710145" y="100.44642857142857"/>
         </scene>
     </scenes>
     <resources>
         <image name="SkyBackground" width="1600" height="900"/>
+        <image name="a.circle" catalog="system" width="128" height="121"/>
+        <image name="s.circle" catalog="system" width="128" height="121"/>
     </resources>
 </document>

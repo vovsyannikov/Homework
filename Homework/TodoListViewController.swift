@@ -29,7 +29,10 @@ class TodoListViewController: UIViewController {
         }
     }
     
-
+    @IBAction func removeCell(_ sender: Any) {
+        print(sender)
+    }
+    
 }
 
 extension TodoListViewController: AddTodoDelegate{
@@ -42,7 +45,6 @@ extension TodoListViewController: AddTodoDelegate{
         }
         
         todoTableView.reloadData()
-        print(realm.objects(Todo.self))
     }
     
 }
@@ -63,5 +65,24 @@ extension TodoListViewController: UITableViewDataSource{
         return cell
     }
     
-    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath){
+        if editingStyle == .delete{
+            
+            var objectToDelete = Todo()
+            for (index, obj) in realm.objects(Todo.self).enumerated(){
+                if index == indexPath.row{
+                    objectToDelete = obj
+                }
+            }
+            
+            try! realm.write{
+                realm.delete(objectToDelete)
+            }
+            self.todoTableView.beginUpdates()
+            self.todoTableView.deleteRows(at: [indexPath], with: .automatic)
+            self.todoTableView.endUpdates()
+            
+            self.todoTableView.reloadData()
+        }
+    }
 }

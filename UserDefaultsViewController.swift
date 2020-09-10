@@ -13,6 +13,7 @@ class Person{
     
     private let kFirstNameKey = "Person.kFirstNameKey"
     private let kSecondNameKey = "Person.kSecondNameKey"
+    
     var firstName: String? {
         set { UserDefaults.standard.set(newValue, forKey: kFirstNameKey)}
         get { return UserDefaults.standard.string(forKey: kFirstNameKey)}

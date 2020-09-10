@@ -24,6 +24,7 @@ class StandartViewController: UIViewController {
         
         // Загрузка погоды на неделю
         wLoader.loadDialyWeatherStandart()
+        
     }
     
 
@@ -32,6 +33,7 @@ class StandartViewController: UIViewController {
 extension StandartViewController: WeatherLoaderDelegate{
     func loaded(_ weather: [Weather]) {
         self.weatherForecast = weather
+        weather[0].storeDays(for: weatherForecast)
         weatherTableView.reloadData()
     }
 }
@@ -49,7 +51,7 @@ extension StandartViewController: UITableViewDataSource{
         // Вывод на экран основных текстовых данных
         cell.tempLabel.text = String(day.temp) + " Cº"
         cell.descriptionLabel.text = day.main
-        cell.dateLabel.text = day.date.getDate()
+        cell.dateLabel.text = day.dateString
         
         
         // На основании присвоенного текстового описания погоды создается картинка

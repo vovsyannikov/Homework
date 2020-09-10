@@ -46,7 +46,7 @@ extension AlamofireViewController: UITableViewDataSource{
         let day = weatherForecast[indexPath.row]
         cell.tempLabel.text = String(day.temp) + " Cº"
         cell.descriptionLabel.text = day.main
-        cell.dateLabel.text = day.date.getDate()
+        cell.dateLabel.text = day.dateString
         
         switch cell.descriptionLabel.text{
             

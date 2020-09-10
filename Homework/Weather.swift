@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import RealmSwift
 
 // Переводчик
 let weatherConditions: [(en: String, ru: String)] = [
@@ -80,11 +81,33 @@ struct MyDate{
     
 }
 
+class Day: Object{
+    var main = ""
+    var temp = 0
+    var date = ""
+    
+    func update(with weather: Weather){
+        self.temp = weather.temp
+        self.date = weather.dateString
+        
+        for dict in weatherConditions{
+            if weather.main == dict.en{
+                self.main = dict.ru
+            }
+        }
+    }
+}
+
 class Weather{
     
-    let date: MyDate
-    let temp: Int
-    let main: String
+    private let realm = try! Realm()
+    
+    let date: MyDate?
+    var temp: Int = 0
+    var main: String = ""
+    var dateString = ""
+    
+    var days: [Day] = []
     
     init?(data: NSDictionary) {
         guard let dt = data["dt"] as? Double,
@@ -99,7 +122,23 @@ class Weather{
         self.date = MyDate(from: simpleDate)
         self.temp = Int(temp)
         self.main = main
+        self.dateString = date!.getDate()
     }
-    
    
+    
+    func storeDays(for weatherForecast: [Weather]){
+        for _ in weatherForecast{
+            self.days.append(Day())
+        }
+        for (index,w) in weatherForecast.enumerated(){
+            self.days[index].update(with: w)
+            print("\(days[index].date) температура составит \(days[index].temp) Cº: \(days[index].main)")
+        }
+        
+//        try! realm.write {
+//            for d in days{
+//                realm.add(d)
+//            }
+//        }
+    }
 }

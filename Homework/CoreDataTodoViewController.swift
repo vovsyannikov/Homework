@@ -126,6 +126,8 @@ extension CoreDataTodoViewController: UITableViewDataSource{
             self.todoTableView.deleteRows(at: [indexPath], with: .automatic)
             self.todoTableView.endUpdates()
             
+            self.todoTableView.reloadData()
+            
         }
     }
     

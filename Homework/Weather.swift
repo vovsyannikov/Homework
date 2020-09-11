@@ -82,9 +82,9 @@ struct MyDate{
 }
 
 class Day: Object{
-    var main = ""
-    var temp = 0
-    var date = ""
+    @objc dynamic var main = ""
+    @objc dynamic var temp = 0
+    @objc dynamic var date = ""
     
     func update(with weather: Weather){
         self.temp = weather.temp
@@ -130,7 +130,7 @@ class Weather{
         self.days.append(Day())
         self.days.last!.update(with: dayForecast)
         
-        // FIXME: Не работает из-за разницы потоков: realm accessed from incorrect thread.
+        // FIXME: Cannot construct reference to unmanaged object, which can be passed across threads directly
 //        writeToRealm(day: self.days.last!)
         
 //        print("\(days.last!.date) температура составит \(days.last!.temp) Cº: \(days.last!.main)")
@@ -138,7 +138,7 @@ class Weather{
     
     func writeToRealm(day: Day){
         let dayThread = ThreadSafeReference(to: day)
-        DispatchQueue(label: "background").async {
+        DispatchQueue.main.async {
             autoreleasepool {
                 guard let d = self.realm.resolve(dayThread) else {
                     return

@@ -49,7 +49,6 @@ class CoreDataTodoViewController: UIViewController {
             print(error)
         }
     }
-    // MARK: Не работает удаление
     func deleteData(withTag del: String){
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
         
@@ -119,10 +118,10 @@ extension CoreDataTodoViewController: UITableViewDataSource{
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath){
         if editingStyle == .delete{
             
-            
             deleteData(withTag: todos[indexPath.row])
+            todos.remove(at: indexPath.row)
+            
             self.todoTableView.beginUpdates()
-            self.todoTableView.reloadSections(IndexSet(indexPath), with: .automatic)
             self.todoTableView.deleteRows(at: [indexPath], with: .automatic)
             self.todoTableView.endUpdates()
             

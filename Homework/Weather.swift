@@ -126,6 +126,10 @@ class Weather: CustomStringConvertible{
         self.main = main
         self.dateString = date!.getDate()
     }
+    
+    init(){
+        self.date = MyDate(from: Date.init(timeIntervalSinceNow: 0))
+    }
    
     
     func storeDays(for dayForecast: Weather){
@@ -142,5 +146,13 @@ class Weather: CustomStringConvertible{
         try! self.realm.write {
             self.realm.add(day)
         }
+    }
+    
+    func loadFromRealm() -> [Day]{
+        var result: [Day] = []
+        for day in self.realm.objects(Day.self){
+            result.append(day)
+        }
+        return result
     }
 }

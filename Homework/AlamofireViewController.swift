@@ -19,11 +19,21 @@ class AlamofireViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         wLoader.delegate = self
-        // Загрузка погоды на день
-//        wLoader.loadCurrentWeatherAlamofire()
         
+        initForecast()
         // Загрузка погоды на неделю
         wLoader.loadDialyWeatherAlamofire()
+    }
+    
+    func initForecast(){
+        let days = Weather().loadFromRealm()
+        for day in days {
+            weatherForecast.append(Weather())
+            weatherForecast.last!.dateString = day.date
+            weatherForecast.last!.temp = day.temp
+            weatherForecast.last!.main = day.main
+            weatherTableView.reloadData()
+        }
     }
 
 }

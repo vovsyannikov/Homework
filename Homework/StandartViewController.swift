@@ -20,11 +20,22 @@ class StandartViewController: UIViewController {
         super.viewDidLoad()
         wLoader.delegate = self
         
+        initForecast()
         // Загрузка погоды на неделю
         wLoader.loadDialyWeatherStandart()
         
     }
     
+    func initForecast(){
+        let days = Weather().loadFromRealm()
+        for day in days {
+            weatherForecast.append(Weather())
+            weatherForecast.last!.dateString = day.date
+            weatherForecast.last!.temp = day.temp
+            weatherForecast.last!.main = day.main
+            weatherTableView.reloadData()
+        }
+    }
 
 }
 

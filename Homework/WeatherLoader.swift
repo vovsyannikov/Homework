@@ -219,14 +219,14 @@ class WeatherLoader{
                 let jsonDict = objects as? NSDictionary{
                 //                    print("\n\njsonDict:")
                 //                    print(jsonDict["list"])
-                
-                for dict in jsonDict["list"] as! NSArray {
-                    if self.weatherForecast.count == 7 { break }
-                    if let w = Weather(data: getFinalData(from: dict as! NSDictionary)){
-                        self.weatherForecast.append(w)
-                    }
-                }
                 DispatchQueue.main.async {
+                    for dict in jsonDict["list"] as! NSArray {
+                        if self.weatherForecast.count == 7 { break }
+                        if let w = Weather(data: getFinalData(from: dict as! NSDictionary)){
+                            self.weatherForecast.append(w)
+                        }
+                    }
+                
                     self.delegate?.loaded(self.weatherForecast)
                 }
             }

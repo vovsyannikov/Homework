@@ -127,27 +127,18 @@ class Weather{
    
     
     func storeDays(for dayForecast: Weather){
-        self.days.append(Day())
-        self.days.last!.update(with: dayForecast)
+        let day = Day()
+        day.update(with: dayForecast)
+//        writeToRealm(day: day)
+        self.days.append(day)
         
-        // FIXME: Cannot construct reference to unmanaged object, which can be passed across threads directly
-//        writeToRealm(day: self.days.last!)
         
 //        print("\(days.last!.date) температура составит \(days.last!.temp) Cº: \(days.last!.main)")
     }
     
     func writeToRealm(day: Day){
-        let dayThread = ThreadSafeReference(to: day)
-        DispatchQueue.main.async {
-            autoreleasepool {
-                guard let d = self.realm.resolve(dayThread) else {
-                    return
-                }
-                try! self.realm.write {
-                    self.realm.add(d, update: .modified)
-                }
-            }
-            
+        try! self.realm.write {
+            self.realm.add(day)
         }
     }
 }

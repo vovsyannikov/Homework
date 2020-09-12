@@ -98,7 +98,9 @@ class Day: Object{
     }
 }
 
-class Weather{
+class Weather: CustomStringConvertible{
+    
+    var description: String { "\(dateString) : температура составит \(temp)Cº \(main)" }
     
     private let realm = try! Realm()
     
@@ -129,7 +131,7 @@ class Weather{
     func storeDays(for dayForecast: Weather){
         let day = Day()
         day.update(with: dayForecast)
-//        writeToRealm(day: day)
+        writeToRealm(day: day)
         self.days.append(day)
         
         

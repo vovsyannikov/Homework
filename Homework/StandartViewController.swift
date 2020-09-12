@@ -19,8 +19,6 @@ class StandartViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         wLoader.delegate = self
-        // Загрузка погоды на сегодня
-//        wLoader.loadCurrentWeatherStandart()
         
         // Загрузка погоды на неделю
         wLoader.loadDialyWeatherStandart()
